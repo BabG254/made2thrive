@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made to Thrive - Empowering Youth, Changing Lives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        secondary: '#2a9d8f',
+                        accent: '#f4a261',
+                        dark: '#1d3557',
+                        light: '#f1faee'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e63946;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .current-page::after {
+            width: 100% !important;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-content.open {
+            max-height: 500px;
+        }
+        
+        .impact-counter {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-counter {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-hands-helping text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
+                    <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-dark font-medium current-page">Home</a>
+                <a href="#about" class="nav-link text-dark font-medium">About Us</a>
+                <a href="#programs" class="nav-link text-dark font-medium">Programs</a>
+                <a href="#gallery" class="nav-link text-dark font-medium">Gallery</a>
+                <a href="#donate" class="nav-link text-dark font-medium">Donate</a>
+                <a href="#contact" class="nav-link text-dark font-medium">Contact</a>
+            </nav>
+            
+            <button class="md:hidden text-dark">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <button class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                Donate Now
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Empowering Youth, Changing Lives</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Educate, Empower & Equip the youth and children of East Africa, inspiring them to live a life of purpose.</p>
+            <button class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                <i class="fas fa-heart mr-2"></i> Donate Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Mission</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-lg md:text-xl leading-relaxed">
+                    Made to Thrive is dedicated to bridging educational gaps and empowering youth in East Africa. 
+                    We provide practical skills, educational resources, and mentorship to help young people discover 
+                    their potential and thrive in their communities. Our mission is to create a generation of confident, 
+                    capable leaders who will drive positive change in their societies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Highlights -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                    <div class="impact-counter text-primary mb-2">1,250+</div>
+                    <h3 class="text-xl font-semibold mb-2">Children Supported</h3>
+                    <p>Providing education and resources to children in need</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                    <div class="impact-counter text-primary mb-2">42</div>
+                    <h3 class="text-xl font-semibold mb-2">Schools Reached</h3>
+                    <p>Partnering with educational institutions across East Africa</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                    <div class="impact-counter text-primary mb-2">15</div>
+                    <h3 class="text-xl font-semibold mb-2">Community Projects</h3>
+                    <p>Improving infrastructure and living conditions</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-lg shadow-md">
+                    <div class="impact-counter text-primary mb-2">8</div>
+                    <h3 class="text-xl font-semibold mb-2">Years of Impact</h3>
+                    <p>Creating lasting change in communities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Programs</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Transforming Lives Through Education and Empowerment</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="program-card bg-light rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-secondary flex items-center justify-center">
+                        <i class="fas fa-school text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">School Visits</h3>
+                        <p class="mb-4">Regular visits to schools to provide educational resources, mentorship, and motivational talks to students.</p>
+                        <a href="school-visits.html" class="text-primary font-semibold flex items-center hover:text-red-700 transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card bg-light rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-accent flex items-center justify-center">
+                        <i class="fas fa-bus text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Educational Tours</h3>
+                        <p class="mb-4">Organizing educational trips to universities and institutions to expose students to higher education opportunities.</p>
+                        <a href="educational-tours.html" class="text-primary font-semibold flex items-center hover:text-red-700 transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card bg-light rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-primary flex items-center justify-center">
+                        <i class="fas fa-campground text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Youth Camps</h3>
+                        <p class="mb-4">Engaging youth in recreational and educational activities during school holidays to develop life skills.</p>
+                        <a href="youth-camps.html" class="text-primary font-semibold flex items-center hover:text-red-700 transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card bg-light rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-secondary flex items-center justify-center">
+                        <i class="fas fa-futbol text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Sports Activities</h3>
+                        <p class="mb-4">Promoting physical fitness and teamwork through organized sports programs and competitions.</p>
+                        <a href="sports-activities.html" class="text-primary font-semibold flex items-center hover:text-red-700 transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 5 -->
+                <div class="program-card bg-light rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-accent flex items-center justify-center">
+                        <i class="fas fa-hands-helping text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Community Service</h3>
+                        <p class="mb-4">Encouraging youth to give back to their communities through volunteer work and social initiatives.</p>
+                        <a href="community-service.html" class="text-primary font-semibold flex items-center hover:text-red-700 transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">Former Student</p>
+                        </div>
+                    </div>
+                    <p class="italic">"Made to Thrive gave me the confidence and skills I needed to pursue my dreams. I'm now studying engineering at university thanks to their support."</p>
+                    <div class="flex text-yellow-400 mt-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Michael Ochieng</h4>
+                            <p class="text-gray-600 text-sm">Community Leader</p>
+                        </div>
+                    </div>
+                    <p class="italic">"The youth camps organized by Made to Thrive have transformed our community. Young people are now more engaged and taking initiative in local development projects."</p>
+                    <div class="flex text-yellow-400 mt-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Rebecca Atieno</h4>
+                            <p class="text-gray-600 text-sm">Parent</p>
+                        </div>
+                    </div>
+                    <p class="italic">"My daughter's life has completely changed since she joined the educational tours. She's more confident and has big dreams for her future now."</p>
+                    <div class="flex text-yellow-400 mt-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Gallery</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore Our Work and Impact</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="gallery1.png" alt="Students in classroom" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="gallery2.png" alt="Youth camp activity" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="gallery3.png" alt="Community service" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="gallery4.png" alt="Sports activity" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="gallery5.png" alt="Educational tour" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="gallery6.png" alt="Community meeting" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Support Our Mission</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Your donation can change a life today</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 bg-primary text-white">
+                        <h3 class="text-2xl font-bold mb-4">Make a Difference</h3>
+                        <p class="mb-6">Your contribution helps us provide education, resources, and opportunities to youth in East Africa. Every dollar makes an impact.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$25 provides school supplies for one child for a year</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$50 sponsors a child's meals for a month</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$100 funds a youth camp activity session</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$250 supports a teacher training workshop</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold mb-6">Donate Now</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="amount">Donation Amount</label>
+                                <div class="flex space-x-4">
+                                    <button type="button" class="px-4 py-2 border border-gray-300 rounded-lg">$25</button>
+                                    <button type="button" class="px-4 py-2 border border-gray-300 rounded-lg bg-primary text-white">$50</button>
+                                    <button type="button" class="px-4 py-2 border border-gray-300 rounded-lg">$100</button>
+                                    <button type="button" class="px-4 py-2 border border-gray-300 rounded-lg">Other</button>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="John Doe">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="john@example.com">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-700">Make this a monthly donation</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Donate Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">We'd love to hear from you</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <form class="bg-light p-8 rounded-xl shadow-md">
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your name">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="your@email.com">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="subject">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="How can we help?">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="message">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="md:w-1/2 md:pl-10">
+                        <div class="bg-light p-8 rounded-xl shadow-md h-full">
+                            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-map-marker-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Our Location</h4>
+                                        <p class="text-gray-600">123 Hope Street, Nairobi, Kenya</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-phone-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Phone Number</h4>
+                                        <p class="text-gray-600">+254 700 123 456</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-envelope text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Email Address</h4>
+                                        <p class="text-gray-600">info@madetothrive.org</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-clock text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Working Hours</h4>
+                                        <p class="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10">
+                                <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-hands-helping text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Empowering youth and children in East Africa through education, skills development, and community engagement.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="#donate" class="text-gray-300 hover:text-white transition">Donate</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Our Programs</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">School Visits</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Community Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for updates and news.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark">
+                        <button class="bg-primary hover:bg-red-700 px-4 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const navMenu = document.querySelector('nav');
+            
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', function() {
+                    navMenu.classList.toggle('hidden');
+                    navMenu.classList.toggle('block');
+                    navMenu.classList.toggle('absolute');
+                    navMenu.classList.toggle('top-full');
+                    navMenu.classList.toggle('left-0');
+                    navMenu.classList.toggle('w-full');
+                    navMenu.classList.toggle('bg-white');
+                    navMenu.classList.toggle('py-4');
+                    navMenu.classList.toggle('shadow-lg');
+                    navMenu.classList.toggle('flex-col');
+                    navMenu.classList.toggle('space-y-2');
+                    navMenu.classList.toggle('px-4');
+                });
+            }
+            
+            // Donation amount selection
+            const donationButtons = document.querySelectorAll('form button[type="button"]');
+            donationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    donationButtons.forEach(btn => btn.classList.remove('bg-primary', 'text-white'));
+                    this.classList.add('bg-primary', 'text-white');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

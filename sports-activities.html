@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Activities Program - Made to Thrive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        secondary: '#2a9d8f',
+                        accent: '#f4a261',
+                        dark: '#1d3557',
+                        light: '#f1faee'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(42, 157, 143, 0.8), rgba(42, 157, 143, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e63946;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .program-card {
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-hands-helping text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
+                    <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-dark font-medium">Home</a>
+                <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
+                <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
+                <a href="index.html#gallery" class="nav-link text-dark font-medium">Gallery</a>
+                <a href="index.html#donate" class="nav-link text-dark font-medium">Donate</a>
+                <a href="index.html#contact" class="nav-link text-dark font-medium">Contact</a>
+            </nav>
+            
+            <button class="md:hidden text-dark">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <a href="index.html#donate" class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                Donate Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <div class="bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-futbol text-white text-4xl"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Sports Activities Program</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Building Healthy Bodies, Strong Minds, and Team Spirit</p>
+            <a href="index.html#donate" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                <i class="fas fa-heart mr-2"></i> Support This Program
+            </a>
+        </div>
+    </section>
+
+    <!-- Program Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">More Than Just Games</h2>
+                <p class="text-lg leading-relaxed">
+                    Our Sports Activities Program promotes physical fitness, teamwork, and character development 
+                    through organized sports and recreational activities. We believe that sports teach valuable 
+                    life lessons including discipline, perseverance, leadership, and respect for others. Our 
+                    program provides opportunities for youth to develop athletic skills while building confidence 
+                    and forming lasting friendships in a supportive environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports We Offer -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sports & Activities</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="program-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-futbol text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Football (Soccer)</h3>
+                    <p class="text-center">The most popular sport, promoting teamwork, coordination, and strategic thinking.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-basketball-ball text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Basketball</h3>
+                    <p class="text-center">Fast-paced game that builds agility, hand-eye coordination, and quick decision-making.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-volleyball-ball text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Volleyball</h3>
+                    <p class="text-center">Team sport that emphasizes communication, timing, and collaborative strategy.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-dark w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-running text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Track & Field</h3>
+                    <p class="text-center">Individual and team events that build endurance, speed, and personal achievement.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-table-tennis text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Table Tennis</h3>
+                    <p class="text-center">Precision sport that develops reflexes, concentration, and mental agility.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dumbbell text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Fitness Training</h3>
+                    <p class="text-center">General fitness activities that build strength, flexibility, and overall health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Benefits -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Sports Matter</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Physical Benefits</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-heart text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Cardiovascular Health</h4>
+                                <p>Regular physical activity strengthens the heart and improves overall fitness levels.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-muscle text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Strength & Coordination</h4>
+                                <p>Sports activities develop muscle strength, balance, and motor coordination skills.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-weight text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Healthy Weight Management</h4>
+                                <p>Active participation helps maintain healthy body weight and prevents obesity.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-dark w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-bed text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Better Sleep & Energy</h4>
+                                <p>Physical activity improves sleep quality and increases overall energy levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Life Skills Development</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-users text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Teamwork & Cooperation</h4>
+                                <p>Learning to work together toward common goals and support teammates.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-crown text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Leadership Skills</h4>
+                                <p>Opportunities to captain teams and guide others in achieving success.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-clock text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Discipline & Time Management</h4>
+                                <p>Regular training schedules teach punctuality and commitment to goals.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-dark w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-handshake text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Respect & Fair Play</h4>
+                                <p>Understanding rules, respecting opponents, and playing with integrity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Training Programs</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-child text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Beginner Level</h3>
+                    <p class="mb-4">Introduction to basic skills, rules, and fundamentals of various sports.</p>
+                    <div class="text-sm text-gray-600">
+                        <p><strong>Age Group:</strong> 8-12 years</p>
+                        <p><strong>Focus:</strong> Fun & Basic Skills</p>
+                        <p><strong>Duration:</strong> 2 hours/week</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Intermediate Level</h3>
+                    <p class="mb-4">Skill development, strategy learning, and competitive play introduction.</p>
+                    <div class="text-sm text-gray-600">
+                        <p><strong>Age Group:</strong> 13-16 years</p>
+                        <p><strong>Focus:</strong> Skill Development</p>
+                        <p><strong>Duration:</strong> 3 hours/week</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advanced Level</h3>
+                    <p class="mb-4">Competitive training, leadership development, and tournament preparation.</p>
+                    <div class="text-sm text-gray-600">
+                        <p><strong>Age Group:</strong> 17+ years</p>
+                        <p><strong>Focus:</strong> Competition & Leadership</p>
+                        <p><strong>Duration:</strong> 4 hours/week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitions & Events -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Competitions & Events</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-light p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-6">Annual Sports Festival</h3>
+                    <p class="mb-6">Our biggest sports event featuring competitions in all sports, bringing together youth from across the region.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar text-primary mr-3"></i>
+                            <span><strong>When:</strong> Every December</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-primary mr-3"></i>
+                            <span><strong>Participants:</strong> 200+ athletes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-medal text-primary mr-3"></i>
+                            <span><strong>Events:</strong> 15+ different sports</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-award text-primary mr-3"></i>
+                            <span><strong>Prizes:</strong> Medals & scholarships</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-light p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-6">Inter-School Leagues</h3>
+                    <p class="mb-6">Regular competitions between schools to maintain engagement and provide ongoing challenges for athletes.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar text-secondary mr-3"></i>
+                            <span><strong>Frequency:</strong> Monthly tournaments</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-school text-secondary mr-3"></i>
+                            <span><strong>Schools:</strong> 15 participating schools</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-futbol text-secondary mr-3"></i>
+                            <span><strong>Sports:</strong> Football, Basketball, Volleyball</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-trophy text-secondary mr-3"></i>
+                            <span><strong>Recognition:</strong> Trophies & certificates</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Athletic Success Stories</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-300 mx-auto mb-4"></div>
+                        <h4 class="font-bold text-lg">David Kipchoge</h4>
+                        <p class="text-gray-600">National Track Champion</p>
+                    </div>
+                    <p class="italic">"Sports activities program gave me my first running shoes and coaching. Now I represent my country in international competitions!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-300 mx-auto mb-4"></div>
+                        <h4 class="font-bold text-lg">Grace Wanjiku</h4>
+                        <p class="text-gray-600">Basketball Team Captain</p>
+                    </div>
+                    <p class="italic">"Learning basketball taught me leadership and teamwork. I now captain my university team and study sports science."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-300 mx-auto mb-4"></div>
+                        <h4 class="font-bold text-lg">Ahmed Hassan</h4>
+                        <p class="text-gray-600">Football Coach</p>
+                    </div>
+                    <p class="italic">"Playing football here changed my life. Now I coach young players and help them discover their potential just like I did."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Program Impact</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-primary text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">450</div>
+                    <p>Active Athletes</p>
+                </div>
+                <div class="text-center p-6 bg-secondary text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">18</div>
+                    <p>Qualified Coaches</p>
+                </div>
+                <div class="text-center p-6 bg-accent text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">25</div>
+                    <p>School Teams</p>
+                </div>
+                <div class="text-center p-6 bg-dark text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">12</div>
+                    <p>Regional Championships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Support -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Support Sports Activities</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 bg-secondary text-white">
+                        <h3 class="text-2xl font-bold mb-4">Equipment & Training Needs</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$15 provides sports equipment for one athlete</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$75 sponsors a team uniform set</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$200 funds coach training and certification</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$1,000 sponsors a sports festival event</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold mb-6">Get Involved</h3>
+                        <div class="space-y-4">
+                            <a href="index.html#donate" class="block w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                Sponsor Equipment
+                            </a>
+                            <a href="index.html#contact" class="block w-full bg-secondary hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                Volunteer as Coach
+                            </a>
+                            <a href="index.html#contact" class="block w-full border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                Donate Sports Gear
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Help Build Champions</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Every young athlete deserves the chance to discover their potential and learn valuable life lessons through sports.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#donate" class="bg-white text-secondary hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300">
+                    Support Sports Program
+                </a>
+                <a href="index.html#contact" class="border-2 border-white text-white hover:bg-white hover:text-secondary font-bold py-3 px-8 rounded-full transition duration-300">
+                    Join Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-hands-helping text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Empowering youth and children in East Africa through education, skills development, and community engagement.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
+                        <li><a href="index.html#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="index.html#donate" class="text-gray-300 hover:text-white transition">Donate</a></li>
+                        <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Our Programs</h3>
+                    <ul class="space-y-3">
+                        <li><a href="school-visits.html" class="text-gray-300 hover:text-white transition">School Visits</a></li>
+                        <li><a href="educational-tours.html" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
+                        <li><a href="youth-camps.html" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
+                        <li><a href="sports-activities.html" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
+                        <li><a href="community-service.html" class="text-gray-300 hover:text-white transition">Community Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for updates and news.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark">
+                        <button class="bg-primary hover:bg-red-700 px-4 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const navMenu = document.querySelector('nav');
+            
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', function() {
+                    navMenu.classList.toggle('hidden');
+                    navMenu.classList.toggle('block');
+                    navMenu.classList.toggle('absolute');
+                    navMenu.classList.toggle('top-full');
+                    navMenu.classList.toggle('left-0');
+                    navMenu.classList.toggle('w-full');
+                    navMenu.classList.toggle('bg-white');
+                    navMenu.classList.toggle('py-4');
+                    navMenu.classList.toggle('shadow-lg');
+                    navMenu.classList.toggle('flex-col');
+                    navMenu.classList.toggle('space-y-2');
+                    navMenu.classList.toggle('px-4');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

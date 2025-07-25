@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Tours Program - Made to Thrive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        secondary: '#2a9d8f',
+                        accent: '#f4a261',
+                        dark: '#1d3557',
+                        light: '#f1faee'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(244, 162, 97, 0.8), rgba(244, 162, 97, 0.8)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e63946;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .program-card {
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-hands-helping text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
+                    <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-dark font-medium">Home</a>
+                <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
+                <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
+                <a href="index.html#gallery" class="nav-link text-dark font-medium">Gallery</a>
+                <a href="index.html#donate" class="nav-link text-dark font-medium">Donate</a>
+                <a href="index.html#contact" class="nav-link text-dark font-medium">Contact</a>
+            </nav>
+            
+            <button class="md:hidden text-dark">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <a href="index.html#donate" class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                Donate Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <div class="bg-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-bus text-white text-4xl"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Educational Tours Program</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Expanding Horizons Through Exploration and Discovery</p>
+            <a href="index.html#donate" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                <i class="fas fa-heart mr-2"></i> Support This Program
+            </a>
+        </div>
+    </section>
+
+    <!-- Program Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Opening Doors to Higher Education</h2>
+                <p class="text-lg leading-relaxed">
+                    Our Educational Tours program takes students beyond their familiar environments to explore 
+                    universities, colleges, and institutions of higher learning. These eye-opening experiences 
+                    help students envision their future possibilities and understand the pathways to achieving 
+                    their dreams. We believe that exposure to higher education opportunities is crucial for 
+                    inspiring academic excellence and career ambition.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Destinations -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Where We Take Students</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="program-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-university text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Universities</h3>
+                    <p>Major universities across East Africa to expose students to higher learning environments.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Technical Institutes</h3>
+                    <p>Vocational and technical training centers showcasing practical career paths.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-flask text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Research Centers</h3>
+                    <p>Scientific and research facilities to inspire STEM career interests.</p>
+                </div>
+                
+                <div class="program-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-dark w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-landmark text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cultural Sites</h3>
+                    <p>Historical and cultural landmarks that enrich understanding of heritage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Activities -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Students Experience</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Tour Activities</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-eye text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Campus Tours</h4>
+                                <p>Guided visits through university facilities, dormitories, and academic buildings.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-comments text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Student Interactions</h4>
+                                <p>Meet current university students and hear about their academic journeys.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-microscope text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Lab Demonstrations</h4>
+                                <p>Hands-on experiences in science laboratories and technical workshops.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-dark w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-graduation-cap text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Admission Guidance</h4>
+                                <p>Information sessions about application processes and requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Student Benefits</h3>
+                    <div class="space-y-4">
+                        <div class="bg-light p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Career Inspiration</h4>
+                            <p>Students discover new career possibilities and develop specific academic goals.</p>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Academic Motivation</h4>
+                            <p>Seeing higher education firsthand motivates students to excel in their current studies.</p>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Network Building</h4>
+                            <p>Students build connections with peers and potential mentors in academic settings.</p>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Cultural Awareness</h4>
+                            <p>Exposure to diverse environments broadens students' perspectives and understanding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-300 mx-auto mb-4"></div>
+                        <h4 class="font-bold text-lg">Grace Wanjiku</h4>
+                        <p class="text-gray-600">Now studying Medicine</p>
+                    </div>
+                    <p class="italic">"The university tour opened my eyes to the possibility of becoming a doctor. I'm now in my second year of medical school!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-300 mx-auto mb-4"></div>
+                        <h4 class="font-bold text-lg">Peter Kiprotich</h4>
+                        <p class="text-gray-600">Engineering Student</p>
+                    </div>
+                    <p class="italic">"Seeing the engineering labs motivated me to work harder. I received a scholarship and I'm now studying civil engineering."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-300 mx-auto mb-4"></div>
+                        <h4 class="font-bold text-lg">Mary Akinyi</h4>
+                        <p class="text-gray-600">Business Student</p>
+                    </div>
+                    <p class="italic">"The business school visit inspired me to start my own small business while still in high school. Now I'm studying entrepreneurship!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Program Impact</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-primary text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">156</div>
+                    <p>Tours Organized</p>
+                </div>
+                <div class="text-center p-6 bg-secondary text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">2,340</div>
+                    <p>Students Participated</p>
+                </div>
+                <div class="text-center p-6 bg-accent text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">67%</div>
+                    <p>Pursue Higher Education</p>
+                </div>
+                <div class="text-center p-6 bg-dark text-white rounded-lg">
+                    <div class="text-4xl font-bold mb-2">25</div>
+                    <p>Partner Institutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Support -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Support Educational Tours</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 bg-accent text-white">
+                        <h3 class="text-2xl font-bold mb-4">Your Impact</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$30 sponsors one student for a university tour</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$150 covers transportation for a group of 15 students</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$500 funds a comprehensive tour with multiple destinations</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
+                                <p>$1,000 sponsors tours for an entire school term</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold mb-6">Get Involved</h3>
+                        <div class="space-y-4">
+                            <a href="index.html#donate" class="block w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                Donate to Educational Tours
+                            </a>
+                            <a href="index.html#contact" class="block w-full bg-secondary hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                Volunteer as a Guide
+                            </a>
+                            <a href="index.html#contact" class="block w-full border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                Partner with Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-accent text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Help Students Discover Their Future</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Every educational tour we organize plants seeds of ambition and opens doors to possibilities.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#donate" class="bg-white text-accent hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300">
+                    Fund a Tour Today
+                </a>
+                <a href="index.html#contact" class="border-2 border-white text-white hover:bg-white hover:text-accent font-bold py-3 px-8 rounded-full transition duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-hands-helping text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Empowering youth and children in East Africa through education, skills development, and community engagement.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
+                        <li><a href="index.html#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="index.html#donate" class="text-gray-300 hover:text-white transition">Donate</a></li>
+                        <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Our Programs</h3>
+                    <ul class="space-y-3">
+                        <li><a href="school-visits.html" class="text-gray-300 hover:text-white transition">School Visits</a></li>
+                        <li><a href="educational-tours.html" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
+                        <li><a href="youth-camps.html" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
+                        <li><a href="sports-activities.html" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
+                        <li><a href="community-service.html" class="text-gray-300 hover:text-white transition">Community Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for updates and news.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark">
+                        <button class="bg-primary hover:bg-red-700 px-4 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const navMenu = document.querySelector('nav');
+            
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', function() {
+                    navMenu.classList.toggle('hidden');
+                    navMenu.classList.toggle('block');
+                    navMenu.classList.toggle('absolute');
+                    navMenu.classList.toggle('top-full');
+                    navMenu.classList.toggle('left-0');
+                    navMenu.classList.toggle('w-full');
+                    navMenu.classList.toggle('bg-white');
+                    navMenu.classList.toggle('py-4');
+                    navMenu.classList.toggle('shadow-lg');
+                    navMenu.classList.toggle('flex-col');
+                    navMenu.classList.toggle('space-y-2');
+                    navMenu.classList.toggle('px-4');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

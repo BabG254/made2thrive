@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Made to Thrive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#e63946', secondary: '#2a9d8f', accent: '#f4a261', dark: '#1d3557', light: '#f1faee' }}}}
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Poppins', sans-serif; }
+    .masonry { column-count: 1; column-gap: 1rem; }
+    @media (min-width: 768px) { .masonry { column-count: 2; } }
+    @media (min-width: 1024px) { .masonry { column-count: 3; } }
+    .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+    .img-card{ transition: transform .3s ease, box-shadow .3s ease; }
+    .img-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);}    
+    .nav-link{ position:relative; }
+    .nav-link::after{ content:''; position:absolute; bottom:-6px; left:0; width:0; height:2px; background:#e63946; transition:width .3s; }
+    .nav-link:hover::after,.current-page::after{ width:100%; }
+    /* Lightbox */
+    .lightbox{ display:none; }
+    .lightbox.open{ display:flex; }
+  </style>
+</head>
+<body class="bg-light text-dark">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
+        <div>
+          <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
+          <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="nav-link text-dark font-medium">Home</a>
+        <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
+        <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
+        <a href="gallery.html" class="nav-link text-dark font-medium current-page">Gallery</a>
+        <a href="donate.html" class="nav-link text-dark font-medium">Donate</a>
+        <a href="index.html#contact" class="nav-link text-dark font-medium">Contact</a>
+      </nav>
+      <a href="donate.html" class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition">Donate</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-white" style="background: linear-gradient(rgba(29,53,87,.65), rgba(29,53,87,.65)), url('gallery4.png') center/cover no-repeat;">
+    <div class="container mx-auto px-4 py-20 md:py-28 text-center">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Our Gallery</h2>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto">A visual story of mentoring, learning, leadership and community — starting in Kenya and reaching the world.</p>
+    </div>
+  </section>
+
+  <!-- Story strip -->
+  <section class="bg-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold">A Day in Our Work</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <div class="flex space-x-4 min-w-full pr-4">
+          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
+            <img src="youngleaders.png" alt="Mentoring conversation" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
+            <h4 class="font-semibold">Mentorship Moments</h4>
+            <p class="text-sm text-gray-600">Coaching young leaders to find purpose and courage.</p>
+          </article>
+          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
+            <img src="highereducation.png" alt="Campus tour" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
+            <h4 class="font-semibold">New Horizons</h4>
+            <p class="text-sm text-gray-600">Exposure visits that open minds to higher education.</p>
+          </article>
+          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
+            <img src="FIRST SOCCER OUTREACH AT MALAA TOWN.png" alt="Team sports" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
+            <h4 class="font-semibold">Team & Character</h4>
+            <p class="text-sm text-gray-600">Sports that build discipline, respect and joy.</p>
+          </article>
+          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
+            <img src="gallery3.png" alt="Community service" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
+            <h4 class="font-semibold">Serving Together</h4>
+            <p class="text-sm text-gray-600">Community projects that teach compassion in action.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="bg-light py-6">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap gap-3 items-center">
+        <button data-filter="all" class="filter-btn bg-primary text-white px-4 py-2 rounded-full text-sm">All</button>
+        <button data-filter="education" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Education</button>
+        <button data-filter="mentorship" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Mentorship</button>
+        <button data-filter="sports" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Sports</button>
+        <button data-filter="community" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Community</button>
+        <button data-filter="events" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Events</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Masonry Gallery -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4">
+      <div id="gallery-grid" class="masonry">
+        <!-- items -->
+        <figure class="masonry-item img-card" data-category="education">
+          <img src="gallery1.png" alt="Students engaged in learning" class="w-full rounded-xl" loading="lazy" />
+          <figcaption class="p-3 text-sm text-gray-600">Learning circles that spark curiosity and confidence.</figcaption>
+        </figure>
+        <figure class="masonry-item img-card" data-category="mentorship">
+          <img src="gallery2.png" alt="Mentorship activity" class="w-full rounded-xl" loading="lazy" />
+          <figcaption class="p-3 text-sm text-gray-600">One-to-one guidance that nurtures values and vision.</figcaption>
+        </figure>
+        <figure class="masonry-item img-card" data-category="community">
+          <img src="gallery3.png" alt="Community service" class="w-full rounded-xl" loading="lazy" />
+          <figcaption class="p-3 text-sm text-gray-600">Hands-on service that meets practical needs with dignity.</figcaption>
+        </figure>
+        <figure class="masonry-item img-card" data-category="sports">
+          <img src="gallery4.png" alt="Sports program" class="w-full rounded-xl" loading="lazy" />
+          <figcaption class="p-3 text-sm text-gray-600">Sports as a classroom for teamwork and resilience.</figcaption>
+        </figure>
+        <figure class="masonry-item img-card" data-category="education events">
+          <img src="gallery5.png" alt="Educational tour" class="w-full rounded-xl" loading="lazy" />
+          <figcaption class="p-3 text-sm text-gray-600">University tours that turn dreams into plans.</figcaption>
+        </figure>
+        <figure class="masonry-item img-card" data-category="community events">
+          <img src="gathering.png" alt="Community meeting" class="w-full rounded-xl" loading="lazy" />
+          <figcaption class="p-3 text-sm text-gray-600">Gathering families and mentors to celebrate progress.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="donate.html" class="inline-flex items-center bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition"><i class="fas fa-heart mr-2"></i>Support the Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox fixed inset-0 bg-black/80 items-center justify-center p-4">
+    <button id="closeLightbox" class="absolute top-4 right-4 text-white text-2xl"><i class="fas fa-times"></i></button>
+    <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl"><i class="fas fa-chevron-left"></i></button>
+    <img id="lightboxImg" src="" alt="" class="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl" />
+    <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl"><i class="fas fa-chevron-right"></i></button>
+    <p id="lightboxCaption" class="text-white mt-4 text-center max-w-3xl"></p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12 mt-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
+            <div>
+              <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+              <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+            <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+            <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+            <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
+            <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-6">Our Programs</h3>
+          <ul class="space-y-3">
+            <li><a href="school-visits.html" class="text-gray-300 hover:text-white transition">School Visits</a></li>
+            <li><a href="educational-tours.html" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
+            <li><a href="youth-camps.html" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
+            <li><a href="sports-activities.html" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
+            <li><a href="community-service.html" class="text-gray-300 hover:text-white transition">Community Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+          <p class="text-gray-300 mb-4">Subscribe for stories and updates.</p>
+          <form class="flex">
+            <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark"/>
+            <button class="bg-primary hover:bg-red-700 px-4 rounded-r-lg transition"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+        <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Filters
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('#gallery-grid .masonry-item');
+    filterButtons.forEach(btn => btn.addEventListener('click', () => {
+      filterButtons.forEach(b=>b.classList.remove('bg-primary','text-white'));
+      btn.classList.add('bg-primary','text-white');
+      const f = btn.dataset.filter;
+      items.forEach(it => {
+        if (f === 'all' || it.dataset.category.includes(f)) {
+          it.classList.remove('hidden');
+        } else {
+          it.classList.add('hidden');
+        }
+      })
+    }))
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('closeLightbox');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    const figures = Array.from(document.querySelectorAll('#gallery-grid figure'));
+    let idx = -1;
+
+    function openLightbox(i){
+      idx = i; const fig = figures[idx];
+      const img = fig.querySelector('img');
+      lightboxImg.src = img.src; lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = fig.querySelector('figcaption')?.textContent || '';
+      lightbox.classList.add('open');
+    }
+    function step(dir){ idx = (idx + dir + figures.length) % figures.length; openLightbox(idx); }
+
+    figures.forEach((fig,i)=>{
+      fig.addEventListener('click', ()=> openLightbox(i));
+    });
+    closeBtn.addEventListener('click', ()=> lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+    prevBtn.addEventListener('click', ()=> step(-1));
+    nextBtn.addEventListener('click', ()=> step(1));
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key==='Escape') lightbox.classList.remove('open');
+      if(e.key==='ArrowLeft') step(-1);
+      if(e.key==='ArrowRight') step(1);
+    });
+  </script>
+</body>
+</html>

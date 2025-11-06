@@ -6,6 +6,8 @@
     <title>Made to Thrive - Empowering Youth, Changing Lives</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload hero image for instant paint on GitHub Pages -->
+    <link rel="preload" as="image" href="gallery1.png">
     <script>
         tailwind.config = {
             theme: {
@@ -139,7 +141,7 @@
     <section id="home" class="hero-bg text-white py-20 md:py-32">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Empowering Youth, Changing Lives</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Educate, Empower & Equip the youth and children of East Africa, inspiring them to live a life of purpose.</p>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Educate, empower, and equip women and young people—starting in Kenya and reaching the world—to live lives of purpose.</p>
             <a href="donate.html" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
                 <i class="fas fa-heart mr-2"></i> Donate Now
             </a>
@@ -147,7 +149,7 @@
     </section>
 
     <!-- Mission Section -->
-    <section class="py-16 bg-white">
+    <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Mission</h2>
@@ -156,10 +158,10 @@
             
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-lg md:text-xl leading-relaxed">
-                    Made to Thrive is dedicated to bridging educational gaps and empowering youth in East Africa. 
-                    We provide practical skills, educational resources, and mentorship to help young people discover 
-                    their potential and thrive in their communities. Our mission is to create a generation of confident, 
-                    capable leaders who will drive positive change in their societies.
+                    Made to Thrive is a global voice for women and young people. Rooted in Kenya and shaped by
+                    experience in the West, we provide education, character (spiritual/moral) formation, and personal
+                    development to help the next generation discover their purpose and lead change in their
+                    communities and across the world.
                 </p>
             </div>
         </div>
@@ -183,7 +185,7 @@
                 <div class="text-center p-6 bg-white rounded-lg shadow-md">
                     <div class="impact-counter text-primary mb-2">42</div>
                     <h3 class="text-xl font-semibold mb-2">Schools Reached</h3>
-                    <p>Partnering with educational institutions across East Africa</p>
+                    <p>Partnering with educational institutions in Kenya and beyond</p>
                 </div>
                 
                 <div class="text-center p-6 bg-white rounded-lg shadow-md">
@@ -382,6 +384,11 @@
                     <img src="gallery6.png" alt="Community meeting" class="w-full h-64 object-cover">
                 </div>
             </div>
+            <div class="text-center mt-10">
+                <a href="gallery.html" class="inline-flex items-center bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition">
+                    <i class="fas fa-images mr-2"></i> View All Memories
+                </a>
+            </div>
         </div>
     </section>
 
@@ -398,7 +405,7 @@
                 <div class="md:flex">
                     <div class="md:w-1/2 p-8 bg-primary text-white">
                         <h3 class="text-2xl font-bold mb-4">Make a Difference</h3>
-                        <p class="mb-6">Your contribution helps us provide education, resources, and opportunities to youth in East Africa. Every dollar makes an impact.</p>
+                        <p class="mb-6">Your contribution helps us provide education, character formation, and opportunities for women and young people in Kenya and around the world. Every dollar makes an impact.</p>
                         
                         <div class="space-y-4">
                             <div class="flex items-start">
@@ -586,7 +593,7 @@
                             <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6">Empowering youth and children in East Africa through education, skills development, and community engagement.</p>
+                    <p class="text-gray-300 mb-6">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
@@ -670,14 +677,17 @@
                 });
             });
             
-            // Smooth scrolling for anchor links
+            // Smooth scrolling for anchor links (with guard for missing targets)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const href = this.getAttribute('href');
+                    // Allow hash-less or external links to behave normally
+                    if (!href || href === '#' || href.length < 2) return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
             });
         });

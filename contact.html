@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Made to Thrive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        secondary: '#2a9d8f',
+                        accent: '#f4a261',
+                        dark: '#1d3557',
+                        light: '#f1faee'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('gallery2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e63946;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .current-page::after {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header Section (copied from index) -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-hands-helping text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
+                    <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="nav-link text-dark font-medium">Home</a>
+                <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
+                <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
+                <a href="gallery.html" class="nav-link text-dark font-medium">Gallery</a>
+                <a href="donate.html" class="nav-link text-dark font-medium">Donate</a>
+                <a href="contact.html" class="nav-link text-dark font-medium current-page">Contact</a>
+            </nav>
+
+            <a href="donate.html" class="md:hidden bg-primary hover:bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-full mr-2 shadow-sm transition duration-300">
+                Donate
+            </a>
+            
+            <button class="md:hidden text-dark w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary transition duration-300">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            <button class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                <a href="donate.html" class="text-white">Donate Now</a>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-28">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">We'd love to hear from you, partner together, and support the young people in your community.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section (moved from index) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Share a question, invitation, or ideawell get back to you.</p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <form class="bg-light p-8 rounded-xl shadow-md">
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your name">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="your@email.com">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="subject">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="How can we help?">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="message">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="md:w-1/2 md:pl-10">
+                        <div class="bg-light p-8 rounded-xl shadow-md h-full">
+                            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-map-marker-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Our Location</h4>
+                                        <p class="text-gray-600">The Wimberly Place, Blossom Avenue, VOK Village Machakos, Kenya 90100</p>
+                                        <p class="text-gray-600">Ruai, Kenya 00520</p>
+                                        <p class="text-gray-600">Nairobi, Kenya</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-phone-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Phone Number</h4>
+                                        <p class="text-gray-600">+254 700 123 456</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-envelope text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Email Address</h4>
+                                        <p class="text-gray-600">wimberlykidsklub@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="text-primary mr-4 mt-1">
+                                        <i class="fas fa-clock text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Working Hours</h4>
+                                        <p class="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10">
+                                <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="mt-10">
+                                <h4 class="font-bold text-lg mb-4">Find Us on the Map</h4>
+                                <div class="rounded-xl overflow-hidden shadow-md h-80 md:h-96">
+                                    <iframe
+                                        src="https://www.google.com/maps?q=The%20Wimberly%20Place%20Blossom%20Avenue%20VOK%20Village%20Machakos%20Kenya%2090100%20Ruai%20Kenya%2000520&output=embed"
+                                        width="100%"
+                                        height="100%"
+                                        style="border:0;"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (copied from index, but with Contact -> contact.html) -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-hands-helping text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Our Programs</h3>
+                    <ul class="space-y-3">
+                        <li><a href="school-visits.html" class="text-gray-300 hover:text-white transition">School Visits</a></li>
+                        <li><a href="educational-tours.html" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
+                        <li><a href="youth-camps.html" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
+                        <li><a href="sports-activities.html" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
+                        <li><a href="community-service.html" class="text-gray-300 hover:text-white transition">Community Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for updates and news.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark">
+                        <button class="bg-primary hover:bg-red-700 px-4 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; <span id="current-year"></span> Twinkle Little Stars, Inc. DBA Made To Thrive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle & dynamic footer year
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const navMenu = document.querySelector('nav');
+            const menuIcon = menuButton ? menuButton.querySelector('i') : null;
+            
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', function() {
+                    navMenu.classList.toggle('hidden');
+                    navMenu.classList.toggle('block');
+                    navMenu.classList.toggle('absolute');
+                    navMenu.classList.toggle('top-full');
+                    navMenu.classList.toggle('left-0');
+                    navMenu.classList.toggle('w-full');
+                    navMenu.classList.toggle('bg-white');
+                    navMenu.classList.toggle('py-4');
+                    navMenu.classList.toggle('shadow-lg');
+                    navMenu.classList.toggle('flex-col');
+                    navMenu.classList.toggle('space-y-2');
+                    navMenu.classList.toggle('px-4');
+
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('fa-bars');
+                        menuIcon.classList.toggle('fa-times');
+                    }
+                });
+            }
+
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

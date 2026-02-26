@@ -6,6 +6,7 @@
     <title>School Visits Program - Made to Thrive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script>
         tailwind.config = {
             theme: {
@@ -34,11 +35,10 @@
             background-size: cover;
             background-position: center;
         }
-        
         .nav-link {
             position: relative;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -81,13 +81,17 @@
                 <a href="index.html" class="nav-link text-dark font-medium">Home</a>
                 <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
                 <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
-                <a href="index.html#gallery" class="nav-link text-dark font-medium">Gallery</a>
+                <a href="gallery.html" class="nav-link text-dark font-medium">Gallery</a>
                 <a href="donate.html" class="nav-link text-dark font-medium">Donate</a>
-                <a href="index.html#contact" class="nav-link text-dark font-medium">Contact</a>
+                <a href="contact.html" class="nav-link text-dark font-medium">Contact</a>
             </nav>
             
-            <button class="md:hidden text-dark">
-                <i class="fas fa-bars text-2xl"></i>
+            <a href="donate.html" class="md:hidden bg-primary hover:bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-full mr-2 shadow-sm transition duration-300">
+                Donate
+            </a>
+            
+            <button class="md:hidden text-dark w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary transition duration-300">
+                <i class="fas fa-bars text-xl"></i>
             </button>
             
             <a href="donate.html" class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
@@ -200,20 +204,20 @@
                     <h3 class="text-2xl font-bold mb-6">By the Numbers</h3>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="text-center p-6 bg-primary text-white rounded-lg">
-                            <div class="text-4xl font-bold mb-2">42</div>
-                            <p>Schools Visited</p>
+                            <div class="text-4xl font-bold mb-2">35+</div>
+                            <p>Schools Reached</p>
                         </div>
                         <div class="text-center p-6 bg-secondary text-white rounded-lg">
-                            <div class="text-4xl font-bold mb-2">1,250+</div>
-                            <p>Students Reached</p>
+                            <div class="text-4xl font-bold mb-2">5,000+</div>
+                            <p>Children Reached</p>
                         </div>
                         <div class="text-center p-6 bg-accent text-white rounded-lg">
                             <div class="text-4xl font-bold mb-2">89</div>
                             <p>Teachers Trained</p>
                         </div>
                         <div class="text-center p-6 bg-dark text-white rounded-lg">
-                            <div class="text-4xl font-bold mb-2">8</div>
-                            <p>Years Active</p>
+                            <div class="text-4xl font-bold mb-2">20</div>
+                            <p>Years of Operation</p>
                         </div>
                     </div>
                 </div>
@@ -247,7 +251,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4">Volunteer</h3>
                     <p class="mb-6">Join our team of volunteers and directly participate in school visits and mentorship programs.</p>
-                    <a href="index.html#contact" class="bg-secondary hover:bg-teal-700 text-white px-6 py-2 rounded-full transition duration-300">
+                    <a href="contact.html" class="bg-secondary hover:bg-teal-700 text-white px-6 py-2 rounded-full transition duration-300">
                         Get Involved
                     </a>
                 </div>
@@ -258,7 +262,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4">Spread the Word</h3>
                     <p class="mb-6">Help us reach more schools and students by sharing our mission with your network.</p>
-                    <a href="index.html#contact" class="bg-accent hover:bg-orange-500 text-white px-6 py-2 rounded-full transition duration-300">
+                    <a href="contact.html" class="bg-accent hover:bg-orange-500 text-white px-6 py-2 rounded-full transition duration-300">
                         Share Our Story
                     </a>
                 </div>
@@ -275,7 +279,7 @@
                 <a href="donate.html" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300">
                     Donate to School Visits
                 </a>
-                <a href="index.html#contact" class="border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-3 px-8 rounded-full transition duration-300">
+                <a href="contact.html" class="border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-3 px-8 rounded-full transition duration-300">
                     Contact Us
                 </a>
             </div>
@@ -302,7 +306,7 @@
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -312,9 +316,9 @@
                         <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
                         <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
                         <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
-                        <li><a href="index.html#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
                         <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
-                        <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -342,16 +346,17 @@
             </div>
             
             <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+                <p>&copy; <span id="current-year"></span> Twinkle Little Stars, Inc. DBA Made To Thrive. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle & dynamic footer year
         document.addEventListener('DOMContentLoaded', function() {
             const menuButton = document.querySelector('button.md\\:hidden');
             const navMenu = document.querySelector('nav');
+            const menuIcon = menuButton ? menuButton.querySelector('i') : null;
             
             if (menuButton && navMenu) {
                 menuButton.addEventListener('click', function() {
@@ -367,7 +372,17 @@
                     navMenu.classList.toggle('flex-col');
                     navMenu.classList.toggle('space-y-2');
                     navMenu.classList.toggle('px-4');
+
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('fa-bars');
+                        menuIcon.classList.toggle('fa-times');
+                    }
                 });
+            }
+
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
             }
         });
     </script>

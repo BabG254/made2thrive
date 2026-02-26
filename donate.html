@@ -6,6 +6,7 @@
     <title>Donate - Made to Thrive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script>
         tailwind.config = {
             theme: {
@@ -78,9 +79,9 @@
                 <a href="index.html" class="nav-link text-dark font-medium">Home</a>
                 <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
                 <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
-                <a href="index.html#gallery" class="nav-link text-dark font-medium">Gallery</a>
+                <a href="gallery.html" class="nav-link text-dark font-medium">Gallery</a>
                 <a href="donate.html" class="nav-link text-dark font-medium current-page">Donate</a>
-                <a href="index.html#contact" class="nav-link text-dark font-medium">Contact</a>
+                <a href="contact.html" class="nav-link text-dark font-medium">Contact</a>
             </nav>
             
             <button class="md:hidden text-dark">
@@ -97,178 +98,20 @@
     <section class="hero-bg text-white py-20 md:py-32">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Support Our Mission</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Your donation helps us empower women and young people—beginning in Kenya and reaching the world—through education, character formation, and personal development.</p>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Your donation helps us empower women and young people	through education, character formation, and personal development.</p>
             <a href="#donate-form" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
                 <i class="fas fa-heart mr-2"></i> Donate Now
             </a>
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Impact</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">See how your donation makes a real difference in the lives of young people</p>
-                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="donation-card text-center p-6 bg-light rounded-xl shadow-md transition duration-300">
-                    <div class="text-4xl text-primary mb-4">$25</div>
-                    <h3 class="text-xl font-bold mb-3">School Supplies</h3>
-                    <p class="text-gray-600">Provides complete school supplies for one child for an entire year</p>
-                    <div class="mt-4">
-                        <i class="fas fa-book-open text-primary text-2xl"></i>
-                    </div>
-                </div>
-                
-                <div class="donation-card text-center p-6 bg-light rounded-xl shadow-md transition duration-300">
-                    <div class="text-4xl text-primary mb-4">$50</div>
-                    <h3 class="text-xl font-bold mb-3">Monthly Meals</h3>
-                    <p class="text-gray-600">Sponsors nutritious meals for one child for a full month</p>
-                    <div class="mt-4">
-                        <i class="fas fa-utensils text-primary text-2xl"></i>
-                    </div>
-                </div>
-                
-                <div class="donation-card text-center p-6 bg-light rounded-xl shadow-md transition duration-300">
-                    <div class="text-4xl text-primary mb-4">$100</div>
-                    <h3 class="text-xl font-bold mb-3">Youth Camp</h3>
-                    <p class="text-gray-600">Funds a complete youth camp activity session for multiple children</p>
-                    <div class="mt-4">
-                        <i class="fas fa-campground text-primary text-2xl"></i>
-                    </div>
-                </div>
-                
-                <div class="donation-card text-center p-6 bg-light rounded-xl shadow-md transition duration-300">
-                    <div class="text-4xl text-primary mb-4">$250</div>
-                    <h3 class="text-xl font-bold mb-3">Teacher Training</h3>
-                    <p class="text-gray-600">Supports a comprehensive teacher training workshop</p>
-                    <div class="mt-4">
-                        <i class="fas fa-chalkboard-teacher text-primary text-2xl"></i>
-                    </div>
-                </div>
-            </div>
+    <!-- Short Tagline Section -->
+    <section class="py-12 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-3">Give So Others Can Thrive</h2>
+            <p class="text-lg max-w-2xl mx-auto">Your generosity fuels school visits, youth camps, sports programs, and community projects across Kenya.</p>
         </div>
     </section>
-
-    <!-- Success Stories -->
-    <section class="py-16 bg-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Donor Success Stories</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear from those who have made a difference</p>
-                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
-                        <div>
-                            <h4 class="font-bold">Jennifer Miller</h4>
-                            <p class="text-gray-600 text-sm">Monthly Donor</p>
-                        </div>
-                    </div>
-                    <p class="italic">"Donating to Made to Thrive has been one of the most rewarding decisions I've made. Knowing that my monthly contribution helps children access education fills my heart with joy."</p>
-                    <div class="flex text-yellow-400 mt-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
-                        <div>
-                            <h4 class="font-bold">Robert Chen</h4>
-                            <p class="text-gray-600 text-sm">Corporate Sponsor</p>
-                        </div>
-                    </div>
-                    <p class="italic">"Our company sponsored a youth camp last year, and the impact report we received was incredible. Seeing the photos and stories of the children made every dollar worth it."</p>
-                    <div class="flex text-yellow-400 mt-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
-                        <div>
-                            <h4 class="font-bold">Maria Rodriguez</h4>
-                            <p class="text-gray-600 text-sm">One-time Donor</p>
-                        </div>
-                    </div>
-                    <p class="italic">"Even my small donation made a difference. The transparency and updates from Made to Thrive show exactly how funds are used. I trust this organization completely."</p>
-                    <div class="flex text-yellow-400 mt-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Donation Form Section -->
-    <section id="donate-form" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Make Your Donation</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Choose your donation amount and help us continue our mission</p>
-                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
-            </div>
-            
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border">
-                <div class="md:flex">
-                    <div class="md:w-1/2 p-8 bg-primary text-white">
-                        <h3 class="text-2xl font-bold mb-6">Why Donate?</h3>
-                        <p class="mb-6">Your contribution directly impacts the lives of women and young people in Kenya and around the world. Every donation, no matter the size, helps us provide education, resources, and opportunities.</p>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
-                                <p>100% of program donations go directly to beneficiaries</p>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
-                                <p>Transparent reporting on fund usage</p>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
-                                <p>Regular updates on program impact</p>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
-                                <p>Tax-deductible receipts provided</p>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="font-bold text-lg mb-4">Secure Payment</h4>
-                            <div class="flex space-x-4">
-                                <i class="fab fa-cc-visa text-2xl"></i>
-                                <i class="fab fa-cc-mastercard text-2xl"></i>
-                                <i class="fab fa-cc-paypal text-2xl"></i>
-                                <i class="fas fa-shield-alt text-2xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="md:w-1/2 p-8">
-                        <form>
-                            <div class="mb-6">
-                                <label class="block text-gray-700 font-bold mb-3">Donation Type</label>
                                 <div class="flex space-x-4">
                                     <label class="flex items-center">
                                         <input type="radio" name="donation-type" value="one-time" class="mr-2" checked>
@@ -387,7 +230,7 @@
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -397,9 +240,9 @@
                         <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
                         <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
                         <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
-                        <li><a href="index.html#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
                         <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
-                        <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -417,7 +260,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-6">Contact Info</h3>
                     <div class="space-y-3">
-                        <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> info@madetothrive.org</p>
+                        <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> wimberlykidsklub@gmail.com</p>
                         <p class="text-gray-300"><i class="fas fa-phone mr-2"></i> +254 700 123 456</p>
                         <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i> Nairobi, Kenya</p>
                     </div>
@@ -425,7 +268,7 @@
             </div>
             
             <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+                <p>&copy; <span id="current-year"></span> Twinkle Little Stars, Inc. DBA Made To Thrive. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -435,6 +278,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const menuButton = document.querySelector('button.md\\:hidden');
             const navMenu = document.querySelector('nav');
+            const menuIcon = menuButton ? menuButton.querySelector('i') : null;
             
             if (menuButton && navMenu) {
                 menuButton.addEventListener('click', function() {
@@ -450,6 +294,11 @@
                     navMenu.classList.toggle('flex-col');
                     navMenu.classList.toggle('space-y-2');
                     navMenu.classList.toggle('px-4');
+
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('fa-bars');
+                        menuIcon.classList.toggle('fa-times');
+                    }
                 });
             }
             
@@ -465,6 +314,11 @@
                     this.classList.add('border-primary', 'bg-primary', 'text-white');
                 });
             });
+
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
         });
     </script>
 </body>

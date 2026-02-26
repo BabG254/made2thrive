@@ -6,6 +6,7 @@
   <title>Gallery - Made to Thrive</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>
     tailwind.config = { theme: { extend: { colors: { primary: '#e63946', secondary: '#2a9d8f', accent: '#f4a261', dark: '#1d3557', light: '#f1faee' }}}}
   </script>
@@ -34,7 +35,7 @@
         <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
         <div>
           <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
-          <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+           <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
         </div>
       </div>
       <nav class="hidden md:flex space-x-8">
@@ -43,8 +44,15 @@
         <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
         <a href="gallery.html" class="nav-link text-dark font-medium current-page">Gallery</a>
         <a href="donate.html" class="nav-link text-dark font-medium">Donate</a>
-        <a href="index.html#contact" class="nav-link text-dark font-medium">Contact</a>
+        <a href="contact.html" class="nav-link text-dark font-medium">Contact</a>
       </nav>
+      
+      <a href="donate.html" class="md:hidden bg-primary hover:bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-full mr-2 shadow-sm transition duration-300">Donate</a>
+
+      <button class="md:hidden text-dark w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary transition duration-300">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+
       <a href="donate.html" class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition">Donate</a>
     </div>
   </header>
@@ -54,6 +62,9 @@
     <div class="container mx-auto px-4 py-20 md:py-28 text-center">
       <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Our Gallery</h2>
       <p class="text-lg md:text-xl max-w-3xl mx-auto">A visual story of mentoring, learning, leadership and community — starting in Kenya and reaching the world.</p>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto mt-4">
+        Across 20 years of work, Made to Thrive has reached over 5,000 kids, partnered with 35+ schools, mentored over 2,000 young adults, trained 500 community leaders, and currently partners with 15 sports academies and 5 community projects.
+      </p>
     </div>
   </section>
 
@@ -159,7 +170,7 @@
             <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
             <div>
               <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
-              <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+               <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
             </div>
           </div>
           <p class="text-gray-300 mb-6">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
@@ -168,7 +179,7 @@
             <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
             <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
             <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+            <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         <div>
@@ -179,7 +190,7 @@
             <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
             <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
             <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
-            <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -202,12 +213,46 @@
         </div>
       </div>
       <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-        <p>&copy; 2025 Made to Thrive. All rights reserved.</p>
+        <p>&copy; <span id="current-year"></span> Twinkle Little Stars, Inc. DBA Made To Thrive. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script>
+    // Mobile nav toggle + year
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton = document.querySelector('button.md\\:hidden');
+      const navMenu = document.querySelector('nav');
+      const menuIcon = menuButton ? menuButton.querySelector('i') : null;
+
+      if (menuButton && navMenu) {
+        menuButton.addEventListener('click', () => {
+          navMenu.classList.toggle('hidden');
+          navMenu.classList.toggle('block');
+          navMenu.classList.toggle('absolute');
+          navMenu.classList.toggle('top-full');
+          navMenu.classList.toggle('left-0');
+          navMenu.classList.toggle('w-full');
+          navMenu.classList.toggle('bg-white');
+          navMenu.classList.toggle('py-4');
+          navMenu.classList.toggle('shadow-lg');
+          navMenu.classList.toggle('flex-col');
+          navMenu.classList.toggle('space-y-2');
+          navMenu.classList.toggle('px-4');
+
+          if (menuIcon) {
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+          }
+        });
+      }
+
+      const yearSpan = document.getElementById('current-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+
     // Filters
     const filterButtons = document.querySelectorAll('.filter-btn');
     const items = document.querySelectorAll('#gallery-grid .masonry-item');

@@ -24,22 +24,29 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
-        
+
         .hero-bg {
-            background: linear-gradient(rgba(230, 57, 70, 0.8), rgba(230, 57, 70, 0.8)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
-        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(29, 53, 87, 0.85);
+        }
+        .hero-bg > * { position: relative; z-index: 1; }
+
         .nav-link {
             position: relative;
         }
-        
         .nav-link::after {
             content: '';
             position: absolute;
@@ -50,14 +57,31 @@
             background-color: #e63946;
             transition: width 0.3s ease;
         }
-        
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
+        .donation-card {
+            transition: all 0.3s ease;
+        }
         .donation-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .amount-btn {
+            transition: all 0.3s ease;
+        }
+        .amount-btn.active {
+            background-color: #2a9d8f;
+            border-color: #2a9d8f;
+            color: white;
+        }
+
+        .payment-btn.active {
+            background-color: #1d3557;
+            border-color: #1d3557;
+            color: white;
         }
     </style>
 </head>
@@ -74,146 +98,202 @@
                     <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
                 </div>
             </div>
-            
+
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link text-dark font-medium">Home</a>
-                <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
-                <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
-                <a href="gallery.html" class="nav-link text-dark font-medium">Gallery</a>
-                <a href="donate.html" class="nav-link text-dark font-medium current-page">Donate</a>
-                <a href="contact.html" class="nav-link text-dark font-medium">Contact</a>
+                <a href="index.html" class="nav-link text-black font-bold uppercase">Home</a>
+                <a href="index.html#about" class="nav-link text-black font-bold uppercase">About Us</a>
+                <a href="index.html#programs" class="nav-link text-black font-bold uppercase">Programs</a>
+                <a href="gallery.html" class="nav-link text-black font-bold uppercase">Gallery</a>
+                <a href="donate.html" class="nav-link text-black font-bold uppercase current-page">Donate</a>
+                <a href="contact.html" class="nav-link text-black font-bold uppercase">Contact</a>
             </nav>
-            
-            <button class="md:hidden text-dark">
-                <i class="fas fa-bars text-2xl"></i>
+
+            <button class="md:hidden text-dark w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center">
+                <i class="fas fa-bars text-xl"></i>
             </button>
-            
-            <a href="#donate-form" class="hidden md:block bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+
+            <a href="#donate-form" class="hidden md:block bg-secondary hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
                 Donate Now
             </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white py-20 md:py-32">
+    <section class="hero-bg text-white py-24 md:py-32">
         <div class="container mx-auto px-4 text-center">
+            <div class="inline-flex items-center bg-white/10 backdrop-blur px-5 py-2 rounded-full mb-6">
+                <i class="fas fa-heart text-primary mr-2"></i>
+                <span class="text-sm font-medium uppercase tracking-wider">Make a Difference Today</span>
+            </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Support Our Mission</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Your donation helps us equip women and young people through education, character formation, and practical life skills like critical thinking, problem solving, and entrepreneurship.</p>
-            <a href="#donate-form" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
-                <i class="fas fa-heart mr-2"></i> Donate Now
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed opacity-90">Your donation helps us equip women and young people through education, character formation, and practical life skills.</p>
+            <a href="#donate-form" class="inline-flex items-center bg-secondary hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300">
+                <i class="fas fa-heart mr-2"></i> Give Now
             </a>
         </div>
     </section>
 
-    <!-- Short Tagline Section -->
-    <section class="py-12 bg-primary text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-3">Give So Others Can Thrive</h2>
-            <p class="text-lg max-w-2xl mx-auto">Your generosity fuels school visits, youth camps, sports programs, and community projects across Kenya.</p>
+    <!-- Impact Stats -->
+    <section class="py-12 bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-secondary">5,000+</div>
+                    <div class="text-sm text-gray-300 mt-1">Children Reached</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-accent">35+</div>
+                    <div class="text-sm text-gray-300 mt-1">Schools Partnered</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-secondary">20</div>
+                    <div class="text-sm text-gray-300 mt-1">Years of Impact</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-accent">500+</div>
+                    <div class="text-sm text-gray-300 mt-1">Leaders Trained</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Main Donation Form -->
-    <section id="donate-form" class="py-16 bg-light">
+    <section id="donate-form" class="py-20 bg-light">
         <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
-                <div class="md:flex">
-                    <!-- Left: Impact summary -->
-                    <div class="md:w-1/2 p-8 bg-primary text-white flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4">Your Gift Makes This Possible</h3>
-                            <p class="mb-4 text-sm md:text-base">Every donation helps us reach more children and young people through school visits, camps, sports, and community projects that build character, courage, and practical problem-solving skills.</p>
-                            <ul class="space-y-3 text-sm">
-                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2"></i> 5,000+ children reached through our programs.</li>
-                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2"></i> 35+ schools partnered with in Kenya and beyond.</li>
-                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2"></i> 20 years of walking with families and communities.</li>
-                            </ul>
+            <div class="text-center mb-12">
+                <span class="inline-block bg-secondary/10 text-secondary px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">Give So Others Can Thrive</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Make Your Donation</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Your generosity fuels school visits, youth camps, sports programs, and community projects across Kenya.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                    <div class="md:flex">
+                        <!-- Left: Impact Info -->
+                        <div class="md:w-2/5 p-8 md:p-10 bg-dark text-white">
+                            <div class="mb-8">
+                                <div class="w-16 h-16 bg-secondary/20 rounded-2xl flex items-center justify-center mb-6">
+                                    <i class="fas fa-gift text-secondary text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4">Your Gift Makes This Possible</h3>
+                                <p class="text-gray-300 leading-relaxed">Every donation helps us reach more children and young people through our transformative programs.</p>
+                            </div>
+
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-check text-secondary text-sm"></i>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">5,000+ children reached through our programs</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-check text-secondary text-sm"></i>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">35+ schools partnered across Kenya</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-check text-secondary text-sm"></i>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">20 years of walking with communities</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-6 border-t border-white/10">
+                                <p class="text-sm text-gray-400 mb-4">Secure payment options</p>
+                                <div class="flex items-center space-x-4 text-gray-400">
+                                    <i class="fab fa-cc-visa text-2xl"></i>
+                                    <i class="fab fa-cc-mastercard text-2xl"></i>
+                                    <i class="fas fa-credit-card text-2xl"></i>
+                                    <i class="fas fa-mobile-alt text-2xl"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mt-8 text-xs text-red-100 opacity-90">
-                            <!--<p class="mb-3">Demo page only &mdash; connect this form to your preferred payment provider (M-Pesa, Flutterwave, Stripe, Visa/Mastercard gateway, etc.).</p> -->
-                            <div class="flex items-center space-x-3 text-white/90">
-                                <i class="fab fa-cc-visa text-2xl"></i>
-                                <i class="fab fa-cc-mastercard text-2xl"></i>
-                                <i class="fas fa-credit-card text-2xl"></i>
-                                <i class="fas fa-mobile-alt text-2xl"></i>
-                            </div>
+
+                        <!-- Right: Form -->
+                        <div class="md:w-3/5 p-8 md:p-10">
+                            <form>
+                                <!-- Donation Type -->
+                                <div class="mb-6">
+                                    <label class="block text-dark font-semibold mb-3">Donation Type</label>
+                                    <div class="flex gap-4">
+                                        <label class="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="donation-type" value="one-time" class="sr-only peer" checked>
+                                            <div class="p-4 border-2 border-gray-200 rounded-xl text-center peer-checked:border-secondary peer-checked:bg-secondary/5 transition">
+                                                <i class="fas fa-hand-holding-heart text-secondary text-xl mb-2"></i>
+                                                <p class="font-semibold">One-time</p>
+                                            </div>
+                                        </label>
+                                        <label class="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="donation-type" value="monthly" class="sr-only peer">
+                                            <div class="p-4 border-2 border-gray-200 rounded-xl text-center peer-checked:border-secondary peer-checked:bg-secondary/5 transition">
+                                                <i class="fas fa-sync-alt text-secondary text-xl mb-2"></i>
+                                                <p class="font-semibold">Monthly</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Amount -->
+                                <div class="mb-6">
+                                    <label class="block text-dark font-semibold mb-3">Select Amount</label>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition">$25</button>
+                                        <button type="button" class="amount-btn active px-4 py-3 border-2 rounded-xl font-semibold">$50</button>
+                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition">$100</button>
+                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition">$250</button>
+                                    </div>
+                                    <div class="relative">
+                                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold">$</span>
+                                        <input type="number" placeholder="Other amount" class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" min="1">
+                                    </div>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <div class="mb-6">
+                                    <label class="block text-dark font-semibold mb-3">Payment Method</label>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button type="button" class="payment-btn p-4 border-2 border-gray-200 rounded-xl hover:border-dark transition flex items-center justify-center space-x-2">
+                                            <i class="fas fa-credit-card text-dark"></i>
+                                            <span class="font-medium">Card</span>
+                                        </button>
+                                        <button type="button" class="payment-btn p-4 border-2 border-gray-200 rounded-xl hover:border-dark transition flex items-center justify-center space-x-2">
+                                            <i class="fas fa-mobile-alt text-dark"></i>
+                                            <span class="font-medium">M-Pesa</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Personal Info -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                    <div>
+                                        <label class="block text-dark font-semibold mb-2">Full Name</label>
+                                        <input type="text" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="Your name" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-dark font-semibold mb-2">Email</label>
+                                        <input type="email" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="your@email.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-dark font-semibold mb-2">Message (Optional)</label>
+                                    <textarea rows="3" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition resize-none" placeholder="Any notes for this gift"></textarea>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="flex items-start cursor-pointer">
+                                        <input type="checkbox" class="mt-1 mr-3 w-5 h-5 text-secondary border-gray-300 rounded focus:ring-secondary">
+                                        <span class="text-gray-600 text-sm">I would like to receive updates about Made to Thrive's programs and impact.</span>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="w-full bg-secondary hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition duration-300 flex items-center justify-center">
+                                    <i class="fas fa-heart mr-2"></i> Complete Donation
+                                </button>
+                            </form>
                         </div>
-                    </div>
-
-                    <!-- Right: Form -->
-                    <div class="md:w-1/2 p-8">
-                        <form>
-                            <div class="mb-4">
-                                <span class="block text-gray-700 font-bold mb-3">Donation Type</span>
-                                <div class="flex flex-wrap gap-4">
-                                    <label class="flex items-center text-sm cursor-pointer">
-                                        <input type="radio" name="donation-type" value="one-time" class="mr-2" checked>
-                                        <span>One-time</span>
-                                    </label>
-                                    <label class="flex items-center text-sm cursor-pointer">
-                                        <input type="radio" name="donation-type" value="monthly" class="mr-2">
-                                        <span>Monthly</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="mb-6">
-                                <label class="block text-gray-700 font-bold mb-3">Donation Amount</label>
-                                <div class="grid grid-cols-2 gap-3 mb-4">
-                                    <button type="button" class="donation-amount-btn px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-primary transition duration-300">$25</button>
-                                    <button type="button" class="donation-amount-btn px-4 py-3 border-2 border-primary bg-primary text-white rounded-lg">$50</button>
-                                    <button type="button" class="donation-amount-btn px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-primary transition duration-300">$100</button>
-                                    <button type="button" class="donation-amount-btn px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-primary transition duration-300">$250</button>
-                                </div>
-                                <input type="number" placeholder="Other amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg" min="1">
-                            </div>
-
-                            <div class="mb-6">
-                                <label class="block text-gray-700 font-bold mb-3">Payment Method</label>
-                                <div class="grid grid-cols-2 gap-3 mb-2">
-                                    <button type="button" class="payment-method-btn px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-secondary transition duration-300 flex items-center justify-center space-x-2">
-                                        <i class="fas fa-credit-card text-secondary"></i>
-                                        <span class="text-sm">Visa / Card</span>
-                                    </button>
-                                    <button type="button" class="payment-method-btn px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-secondary transition duration-300 flex items-center justify-center space-x-2">
-                                        <i class="fas fa-mobile-alt text-secondary"></i>
-                                        <span class="text-sm">M-Pesa / Mobile</span>
-                                    </button>
-                                </div>
-                                <p class="text-xs text-gray-500">These are sample options. Configure them to match your actual payment channels.</p>
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 font-bold mb-2" for="donor-name">Full Name</label>
-                                <input type="text" id="donor-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your full name" required>
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 font-bold mb-2" for="donor-email">Email Address</label>
-                                <input type="email" id="donor-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="your@email.com" required>
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 font-bold mb-2" for="donor-phone">Phone Number (Optional)</label>
-                                <input type="tel" id="donor-phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="+254 700 000 000">
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 font-bold mb-2" for="donor-message">Message (Optional)</label>
-                                <textarea id="donor-message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Any intention or notes for this gift"></textarea>
-                            </div>
-
-                            <div class="mb-6">
-                                <label class="flex items-start cursor-pointer">
-                                    <input type="checkbox" class="mr-3 mt-1">
-                                    <span class="text-gray-700 text-sm">I would like to receive updates about Made to Thrive's programs and impact.</span>
-                                </label>
-                            </div>
-
-                            <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg text-lg transition duration-300 transform hover:scale-105">
-                                <i class="fas fa-heart mr-2"></i> Complete Donation
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -221,114 +301,116 @@
     </section>
 
     <!-- Transparency Section -->
-    <section class="py-16 bg-light">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-dark/10 text-dark px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">Accountability</span>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Financial Transparency</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">We believe in complete transparency about how your donations are used.</p>
-                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
             </div>
-            
+
             <div class="max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="text-center p-6 bg-white rounded-xl shadow-md">
-                        <div class="text-4xl font-bold text-secondary mb-4">85%</div>
-                        <h3 class="text-xl font-bold mb-3">Program Costs</h3>
-                        <p class="text-gray-600">Directly supports our educational programs and youth initiatives</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="donation-card text-center p-8 bg-light rounded-2xl border-2 border-transparent hover:border-secondary">
+                        <div class="w-20 h-20 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl font-bold text-secondary">85%</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Program Costs</h3>
+                        <p class="text-gray-600 text-sm">Directly supports our educational programs and youth initiatives</p>
                     </div>
-                    
-                    <div class="text-center p-6 bg-white rounded-xl shadow-md">
-                        <div class="text-4xl font-bold text-accent mb-4">10%</div>
-                        <h3 class="text-xl font-bold mb-3">Administrative</h3>
-                        <p class="text-gray-600">Covers essential operational costs and staff salaries</p>
+
+                    <div class="donation-card text-center p-8 bg-light rounded-2xl border-2 border-transparent hover:border-accent">
+                        <div class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl font-bold text-accent">10%</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Administrative</h3>
+                        <p class="text-gray-600 text-sm">Covers essential operational costs and staff salaries</p>
                     </div>
-                    
-                    <div class="text-center p-6 bg-white rounded-xl shadow-md">
-                        <div class="text-4xl font-bold text-primary mb-4">5%</div>
-                        <h3 class="text-xl font-bold mb-3">Fundraising</h3>
-                        <p class="text-gray-600">Helps us reach more donors and raise awareness</p>
+
+                    <div class="donation-card text-center p-8 bg-light rounded-2xl border-2 border-transparent hover:border-dark">
+                        <div class="w-20 h-20 bg-dark/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl font-bold text-dark">5%</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Fundraising</h3>
+                        <p class="text-gray-600 text-sm">Helps us reach more donors and raise awareness</p>
                     </div>
                 </div>
-                
-                <!-- <div class="text-center mt-12">
-                    <a href="#" class="inline-flex items-center bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
-                        <i class="fas fa-download mr-2"></i> Download Annual Report
-                    </a> 
-                </div>-->
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-hands-helping text-white text-xl"></i>
+    <footer class="bg-dark text-white">
+        <div class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <div class="bg-primary w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-hands-helping text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
-                            <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
+                        <div class="flex space-x-3">
+                            <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 flex items-center"><span class="w-8 h-1 bg-primary mr-3"></span>Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Home</a></li>
+                            <li><a href="index.html#about" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>About Us</a></li>
+                            <li><a href="index.html#programs" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Programs</a></li>
+                            <li><a href="gallery.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Gallery</a></li>
+                            <li><a href="donate.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Donate</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Contact</a></li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
-                        <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
-                        <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
-                        <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
-                        <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Our Programs</h3>
-                    <ul class="space-y-3">
-                        <li><a href="school-visits.html" class="text-gray-300 hover:text-white transition">School Visits</a></li>
-                        <li><a href="educational-tours.html" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
-                        <li><a href="youth-camps.html" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
-                        <li><a href="sports-activities.html" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
-                        <li><a href="community-service.html" class="text-gray-300 hover:text-white transition">Community Service</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Contact Info</h3>
-                    <div class="space-y-3">
-                        <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> wimberlykidsklub@gmail.com</p>
-                        <p class="text-gray-300"><i class="fas fa-phone mr-2"></i> +254 700 123 456</p>
-                        <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i> Nairobi, Kenya</p>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 flex items-center"><span class="w-8 h-1 bg-primary mr-3"></span>Programs</h3>
+                        <ul class="space-y-3">
+                            <li><a href="school-visits.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>School Visits</a></li>
+                            <li><a href="educational-tours.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Educational Tours</a></li>
+                            <li><a href="youth-camps.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Youth Camps</a></li>
+                            <li><a href="sports-activities.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Sports Activities</a></li>
+                            <li><a href="community-service.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Community Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 flex items-center"><span class="w-8 h-1 bg-primary mr-3"></span>Contact</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-300 flex items-start"><i class="fas fa-envelope mr-3 mt-1 text-primary"></i> wimberlykidsklub@gmail.com</p>
+                            <p class="text-gray-300 flex items-start"><i class="fas fa-phone mr-3 mt-1 text-primary"></i> +254 700 123 456</p>
+                            <p class="text-gray-300 flex items-start"><i class="fas fa-map-marker-alt mr-3 mt-1 text-primary"></i> Nairobi, Kenya</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+        </div>
+        <div class="border-t border-gray-700 py-6">
+            <div class="container mx-auto px-4 text-center text-gray-400">
                 <p>&copy; <span id="current-year"></span> Twinkle Little Stars, Inc. DBA Made To Thrive. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu
             const menuButton = document.querySelector('button.md\\:hidden');
             const navMenu = document.querySelector('nav');
             const menuIcon = menuButton ? menuButton.querySelector('i') : null;
-            
+
             if (menuButton && navMenu) {
                 menuButton.addEventListener('click', function() {
                     navMenu.classList.toggle('hidden');
@@ -350,37 +432,28 @@
                     }
                 });
             }
-            
-            // Donation amount selection
-            const donationButtons = document.querySelectorAll('.donation-amount-btn');
-            donationButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    donationButtons.forEach(btn => {
-                        btn.classList.remove('border-primary', 'bg-primary', 'text-white');
-                        btn.classList.add('border-gray-300');
-                    });
-                    this.classList.remove('border-gray-300');
-                    this.classList.add('border-primary', 'bg-primary', 'text-white');
+
+            // Amount selection
+            const amountBtns = document.querySelectorAll('.amount-btn');
+            amountBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    amountBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
 
             // Payment method selection
-            const paymentButtons = document.querySelectorAll('.payment-method-btn');
-            paymentButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    paymentButtons.forEach(btn => {
-                        btn.classList.remove('border-secondary', 'bg-secondary', 'text-white');
-                        btn.classList.add('border-gray-300');
-                    });
-                    this.classList.remove('border-gray-300');
-                    this.classList.add('border-secondary', 'bg-secondary', 'text-white');
+            const paymentBtns = document.querySelectorAll('.payment-btn');
+            paymentBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    paymentBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
 
+            // Year
             const yearSpan = document.getElementById('current-year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
         });
     </script>
 </body>

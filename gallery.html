@@ -13,40 +13,118 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     body { font-family: 'Poppins', sans-serif; }
-    .masonry { column-count: 1; column-gap: 1rem; }
-    @media (min-width: 768px) { .masonry { column-count: 2; } }
-    @media (min-width: 1024px) { .masonry { column-count: 3; } }
-    .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
-    .img-card{ transition: transform .3s ease, box-shadow .3s ease; }
-    .img-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);}    
+
+    .hero-bg {
+      position: relative;
+      background-image: url('gallery4.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(29, 53, 87, 0.85);
+    }
+    .hero-bg > * { position: relative; z-index: 1; }
+
     .nav-link{ position:relative; }
     .nav-link::after{ content:''; position:absolute; bottom:-6px; left:0; width:0; height:2px; background:#e63946; transition:width .3s; }
     .nav-link:hover::after,.current-page::after{ width:100%; }
-    /* Lightbox */
-    .lightbox{ display:none; }
-    .lightbox.open{ display:flex; }
+
+    .gallery-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      border-color: #2a9d8f;
+    }
+    .gallery-card img {
+      transition: transform 0.4s ease;
+    }
+    .gallery-card:hover img {
+      transform: scale(1.03);
+    }
+    .gallery-card figcaption {
+      border-top: 3px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .gallery-card:hover figcaption {
+      border-top-color: #2a9d8f;
+    }
+
+    .story-card {
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+    .story-card:hover {
+      transform: translateY(-4px);
+      border-color: #f4a261;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-btn {
+      transition: all 0.25s ease;
+      letter-spacing: 0.02em;
+    }
+    .filter-btn.active {
+      background-color: #2a9d8f;
+      color: white;
+      border-color: #2a9d8f;
+    }
+    .filter-btn:hover:not(.active) {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .lightbox { display: none; }
+    .lightbox.open { display: flex; }
+
+    .masonry {
+      column-count: 1;
+      column-gap: 1.25rem;
+    }
+    @media (min-width: 640px) { .masonry { column-count: 2; } }
+    @media (min-width: 1024px) { .masonry { column-count: 3; } }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+    }
+
+    .story-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .story-scroll::-webkit-scrollbar-track {
+      background: #f1faee;
+      border-radius: 3px;
+    }
+    .story-scroll::-webkit-scrollbar-thumb {
+      background: #2a9d8f;
+      border-radius: 3px;
+    }
   </style>
 </head>
 <body class="bg-light text-dark">
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-md">
+  <header class="sticky top-0 z-50 bg-white shadow-md">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
         <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
         <div>
           <h1 class="text-2xl font-bold text-dark">Made to <span class="text-primary">Thrive</span></h1>
-           <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+          <p class="text-xs text-gray-600 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
         </div>
       </div>
       <nav class="hidden md:flex space-x-8">
-        <a href="index.html#home" class="nav-link text-dark font-medium">Home</a>
-        <a href="index.html#about" class="nav-link text-dark font-medium">About Us</a>
-        <a href="index.html#programs" class="nav-link text-dark font-medium">Programs</a>
-        <a href="gallery.html" class="nav-link text-dark font-medium current-page">Gallery</a>
-        <a href="donate.html" class="nav-link text-dark font-medium">Donate</a>
-        <a href="contact.html" class="nav-link text-dark font-medium">Contact</a>
+        <a href="index.html#home" class="nav-link text-black font-bold uppercase">Home</a>
+        <a href="index.html#about" class="nav-link text-black font-bold uppercase">About Us</a>
+        <a href="index.html#programs" class="nav-link text-black font-bold uppercase">Programs</a>
+        <a href="gallery.html" class="nav-link text-black font-bold uppercase current-page">Gallery</a>
+        <a href="donate.html" class="nav-link text-black font-bold uppercase">Donate</a>
+        <a href="contact.html" class="nav-link text-black font-bold uppercase">Contact</a>
       </nav>
-      
+
       <a href="donate.html" class="md:hidden bg-primary hover:bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-full mr-2 shadow-sm transition duration-300">Donate</a>
 
       <button class="md:hidden text-dark w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary transition duration-300">
@@ -58,43 +136,99 @@
   </header>
 
   <!-- Hero -->
-  <section class="text-white" style="background: linear-gradient(rgba(29,53,87,.65), rgba(29,53,87,.65)), url('gallery4.png') center/cover no-repeat;">
-    <div class="container mx-auto px-4 py-20 md:py-28 text-center">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Our Gallery</h2>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto">A visual story of mentoring, learning, leadership and community — starting in Kenya and reaching the world.</p>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto mt-4">
-        Across 20 years of work, Made to Thrive has reached over 5,000 kids, partnered with 35+ schools, mentored over 2,000 young adults, trained 500 community leaders, and currently partners with 15 sports academies and 5 community projects.
-      </p>
+  <section class="hero-bg text-white py-24 md:py-32">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-6">Our Gallery</h2>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed opacity-90">A visual story of mentoring, learning, leadership and community — starting in Kenya and reaching the world.</p>
+      <div class="flex flex-wrap justify-center gap-6 mt-10">
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-accent">5,000+</div>
+          <div class="text-sm opacity-75">Children Reached</div>
+        </div>
+        <div class="w-px h-12 bg-white/30 hidden sm:block"></div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-accent">35+</div>
+          <div class="text-sm opacity-75">Schools</div>
+        </div>
+        <div class="w-px h-12 bg-white/30 hidden sm:block"></div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-accent">2,000+</div>
+          <div class="text-sm opacity-75">Young Adults</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Story strip -->
-  <section class="bg-white py-12">
+  <!-- Story Strip -->
+  <section class="py-14 bg-white border-b border-gray-100">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="text-2xl font-bold">A Day in Our Work</h3>
+      <div class="flex items-end justify-between mb-6">
+        <div>
+          <p class="text-secondary text-sm font-medium uppercase tracking-wider mb-1">Highlights</p>
+          <h3 class="text-2xl md:text-3xl font-bold text-dark">A Day in Our Work</h3>
+        </div>
+        <div class="hidden sm:flex items-center gap-3">
+          <span class="text-sm text-gray-500">Scroll</span>
+          <div class="flex gap-1">
+            <span class="w-8 h-1 bg-secondary rounded-full"></span>
+            <span class="w-8 h-1 bg-gray-200 rounded-full"></span>
+            <span class="w-8 h-1 bg-gray-200 rounded-full"></span>
+          </div>
+        </div>
       </div>
-      <div class="overflow-x-auto">
-        <div class="flex space-x-4 min-w-full pr-4">
-          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
-            <img src="youngleaders.png" alt="Mentoring conversation" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
-            <h4 class="font-semibold">Mentorship Moments</h4>
-            <p class="text-sm text-gray-600">Coaching young leaders to find purpose and courage.</p>
+      <div class="overflow-x-auto pb-4 -mx-4 px-4 story-scroll">
+        <div class="flex gap-5 min-w-max">
+          <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="relative h-44 overflow-hidden">
+              <img src="youngleaders.png" alt="Mentoring conversation" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 bg-secondary text-white px-3 py-1 rounded text-xs font-medium">
+                <i class="fas fa-users mr-1"></i> Mentorship
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-secondary">
+              <h4 class="font-semibold text-dark mb-1">Mentorship Moments</h4>
+              <p class="text-sm text-gray-500">Coaching young leaders to find purpose and courage.</p>
+            </div>
           </article>
-          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
-            <img src="highereducation.png" alt="Campus tour" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
-            <h4 class="font-semibold">New Horizons</h4>
-            <p class="text-sm text-gray-600">Exposure visits that open minds to higher education.</p>
+          <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="relative h-44 overflow-hidden">
+              <img src="highereducation.png" alt="Campus tour" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 bg-accent text-white px-3 py-1 rounded text-xs font-medium">
+                <i class="fas fa-graduation-cap mr-1"></i> Education
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-accent">
+              <h4 class="font-semibold text-dark mb-1">New Horizons</h4>
+              <p class="text-sm text-gray-500">Exposure visits that open minds to higher education.</p>
+            </div>
           </article>
-          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
-            <img src="FIRST SOCCER OUTREACH AT MALAA TOWN.png" alt="Team sports" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
-            <h4 class="font-semibold">Team & Character</h4>
-            <p class="text-sm text-gray-600">Sports that build discipline, respect and joy.</p>
+          <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="relative h-44 overflow-hidden">
+              <img src="FIRST SOCCER OUTREACH AT MALAA TOWN.png" alt="Team sports" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 bg-primary text-white px-3 py-1 rounded text-xs font-medium">
+                <i class="fas fa-futbol mr-1"></i> Sports
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-primary">
+              <h4 class="font-semibold text-dark mb-1">Team & Character</h4>
+              <p class="text-sm text-gray-500">Sports that build discipline, respect and joy.</p>
+            </div>
           </article>
-          <article class="min-w-[280px] bg-light rounded-xl p-4 img-card">
-            <img src="gallery3.png" alt="Community service" class="w-full h-44 object-cover rounded-lg mb-3" loading="lazy" />
-            <h4 class="font-semibold">Serving Together</h4>
-            <p class="text-sm text-gray-600">Community projects that teach compassion in action.</p>
+          <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="relative h-44 overflow-hidden">
+              <img src="gallery3.png" alt="Community service" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 bg-dark text-white px-3 py-1 rounded text-xs font-medium">
+                <i class="fas fa-hands-helping mr-1"></i> Community
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-dark">
+              <h4 class="font-semibold text-dark mb-1">Serving Together</h4>
+              <p class="text-sm text-gray-500">Community projects that teach compassion in action.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -102,129 +236,195 @@
   </section>
 
   <!-- Filters -->
-  <section class="bg-light py-6">
+  <section class="py-5 bg-dark sticky top-[68px] z-40 shadow-lg">
     <div class="container mx-auto px-4">
-      <div class="flex flex-wrap gap-3 items-center">
-        <button data-filter="all" class="filter-btn bg-primary text-white px-4 py-2 rounded-full text-sm">All</button>
-        <button data-filter="education" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Education</button>
-        <button data-filter="mentorship" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Mentorship</button>
-        <button data-filter="sports" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Sports</button>
-        <button data-filter="community" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Community</button>
-        <button data-filter="events" class="filter-btn bg-white px-4 py-2 rounded-full text-sm border">Events</button>
+      <div class="flex flex-wrap gap-2 items-center justify-center">
+        <button data-filter="all" class="filter-btn active bg-secondary text-white px-4 py-2 rounded text-sm font-medium border-2 border-secondary">All Photos</button>
+        <button data-filter="education" class="filter-btn bg-transparent text-white/80 px-4 py-2 rounded text-sm font-medium border-2 border-white/20 hover:border-white/50">Education</button>
+        <button data-filter="mentorship" class="filter-btn bg-transparent text-white/80 px-4 py-2 rounded text-sm font-medium border-2 border-white/20 hover:border-white/50">Mentorship</button>
+        <button data-filter="sports" class="filter-btn bg-transparent text-white/80 px-4 py-2 rounded text-sm font-medium border-2 border-white/20 hover:border-white/50">Sports</button>
+        <button data-filter="community" class="filter-btn bg-transparent text-white/80 px-4 py-2 rounded text-sm font-medium border-2 border-white/20 hover:border-white/50">Community</button>
+        <button data-filter="events" class="filter-btn bg-transparent text-white/80 px-4 py-2 rounded text-sm font-medium border-2 border-white/20 hover:border-white/50">Events</button>
       </div>
     </div>
   </section>
 
   <!-- Masonry Gallery -->
-  <section class="py-10 bg-white">
+  <section class="py-14 bg-gray-50">
     <div class="container mx-auto px-4">
       <div id="gallery-grid" class="masonry">
-        <!-- items -->
-        <figure class="masonry-item img-card" data-category="education">
-          <img src="gallery1.png" alt="Students engaged in learning" class="w-full rounded-xl" loading="lazy" />
-          <figcaption class="p-3 text-sm text-gray-600">Learning circles that spark curiosity and confidence.</figcaption>
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden">
+            <img src="gallery1.png" alt="Students engaged in learning" class="w-full" loading="lazy" />
+          </div>
+          <figcaption class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-secondary uppercase tracking-wide"><i class="fas fa-graduation-cap mr-1"></i> Education</span>
+              <i class="fas fa-expand text-gray-300 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">Learning circles that spark curiosity and confidence.</p>
+          </figcaption>
         </figure>
-        <figure class="masonry-item img-card" data-category="mentorship">
-          <img src="gallery2.png" alt="Mentorship activity" class="w-full rounded-xl" loading="lazy" />
-          <figcaption class="p-3 text-sm text-gray-600">One-to-one guidance that nurtures values and vision.</figcaption>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden">
+            <img src="gallery2.png" alt="Mentorship activity" class="w-full" loading="lazy" />
+          </div>
+          <figcaption class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-accent uppercase tracking-wide"><i class="fas fa-users mr-1"></i> Mentorship</span>
+              <i class="fas fa-expand text-gray-300 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">One-to-one guidance that nurtures values and vision.</p>
+          </figcaption>
         </figure>
-        <figure class="masonry-item img-card" data-category="community">
-          <img src="gallery3.png" alt="Community service" class="w-full rounded-xl" loading="lazy" />
-          <figcaption class="p-3 text-sm text-gray-600">Hands-on service that meets practical needs with dignity.</figcaption>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden">
+            <img src="gallery3.png" alt="Community service" class="w-full" loading="lazy" />
+          </div>
+          <figcaption class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-dark uppercase tracking-wide"><i class="fas fa-hands-helping mr-1"></i> Community</span>
+              <i class="fas fa-expand text-gray-300 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">Hands-on service that meets practical needs with dignity.</p>
+          </figcaption>
         </figure>
-        <figure class="masonry-item img-card" data-category="sports">
-          <img src="gallery4.png" alt="Sports program" class="w-full rounded-xl" loading="lazy" />
-          <figcaption class="p-3 text-sm text-gray-600">Sports as a classroom for teamwork and resilience.</figcaption>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden">
+            <img src="gallery4.png" alt="Sports program" class="w-full" loading="lazy" />
+          </div>
+          <figcaption class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-primary uppercase tracking-wide"><i class="fas fa-futbol mr-1"></i> Sports</span>
+              <i class="fas fa-expand text-gray-300 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">Sports as a classroom for teamwork and resilience.</p>
+          </figcaption>
         </figure>
-        <figure class="masonry-item img-card" data-category="education events">
-          <img src="gallery5.png" alt="Educational tour" class="w-full rounded-xl" loading="lazy" />
-          <figcaption class="p-3 text-sm text-gray-600">University tours that turn dreams into plans.</figcaption>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education events">
+          <div class="overflow-hidden">
+            <img src="gallery5.png" alt="Educational tour" class="w-full" loading="lazy" />
+          </div>
+          <figcaption class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-secondary uppercase tracking-wide"><i class="fas fa-university mr-1"></i> Education</span>
+              <i class="fas fa-expand text-gray-300 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">University tours that turn dreams into plans.</p>
+          </figcaption>
         </figure>
-        <figure class="masonry-item img-card" data-category="community events">
-          <img src="gathering.png" alt="Community meeting" class="w-full rounded-xl" loading="lazy" />
-          <figcaption class="p-3 text-sm text-gray-600">Gathering families and mentors to celebrate progress.</figcaption>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community events">
+          <div class="overflow-hidden">
+            <img src="gathering.png" alt="Community meeting" class="w-full" loading="lazy" />
+          </div>
+          <figcaption class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-accent uppercase tracking-wide"><i class="fas fa-calendar-alt mr-1"></i> Events</span>
+              <i class="fas fa-expand text-gray-300 text-sm"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">Gathering families and mentors to celebrate progress.</p>
+          </figcaption>
         </figure>
       </div>
 
-      <div class="text-center mt-10">
-        <a href="donate.html" class="inline-flex items-center bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition"><i class="fas fa-heart mr-2"></i>Support the Story</a>
+      <!-- CTA -->
+      <div class="text-center mt-14">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 md:p-10 max-w-xl mx-auto">
+          <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-heart text-secondary text-lg"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark mb-3">Be Part of the Story</h3>
+          <p class="text-gray-500 mb-5 text-sm">Your support helps us create more moments of transformation and capture more stories of hope.</p>
+          <a href="donate.html" class="inline-flex items-center bg-secondary hover:bg-teal-600 text-white font-medium py-3 px-6 rounded transition duration-300">
+            <i class="fas fa-heart mr-2 text-sm"></i> Support Our Mission
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox fixed inset-0 bg-black/80 items-center justify-center p-4">
-    <button id="closeLightbox" class="absolute top-4 right-4 text-white text-2xl"><i class="fas fa-times"></i></button>
-    <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl"><i class="fas fa-chevron-left"></i></button>
-    <img id="lightboxImg" src="" alt="" class="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl" />
-    <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl"><i class="fas fa-chevron-right"></i></button>
-    <p id="lightboxCaption" class="text-white mt-4 text-center max-w-3xl"></p>
+  <div id="lightbox" class="lightbox fixed inset-0 bg-dark/95 items-center justify-center p-4 z-50">
+    <button id="closeLightbox" class="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded flex items-center justify-center text-white hover:bg-white/20 transition"><i class="fas fa-times"></i></button>
+    <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 rounded flex items-center justify-center text-white hover:bg-white/20 transition"><i class="fas fa-chevron-left"></i></button>
+    <img id="lightboxImg" src="" alt="" class="max-h-[85vh] max-w-[90vw] rounded shadow-2xl" />
+    <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 rounded flex items-center justify-center text-white hover:bg-white/20 transition"><i class="fas fa-chevron-right"></i></button>
+    <p id="lightboxCaption" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center text-sm max-w-md bg-dark/70 px-5 py-2 rounded"></p>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white py-12 mt-8">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center mb-6">
-            <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
-            <div>
-              <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
-               <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+  <footer class="bg-dark text-white">
+    <div class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
+            <div class="flex items-center mb-6">
+              <div class="bg-primary w-12 h-12 rounded-full flex items-center justify-center mr-3"><i class="fas fa-hands-helping text-white text-xl"></i></div>
+              <div>
+                <h2 class="text-2xl font-bold">Made to <span class="text-primary">Thrive</span></h2>
+                <p class="text-xs text-gray-400 uppercase tracking-wide">TWINKLE LITTLE STARS, INC.</p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-6 leading-relaxed">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
+            <div class="flex space-x-3">
+              <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+              <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition duration-300"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
-          <p class="text-gray-300 mb-6">Empowering women and young people in Kenya and around the world through education, character formation, and personal development.</p>
-          <div class="flex space-x-4">
-            <a href="https://www.facebook.com/TwinkleLittleStarsInc/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://youtube.com/@wimberlykids?si=NMnAMmI02iYszK9G" class="text-gray-300 hover:text-white"><i class="fab fa-youtube"></i></a>
+          <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center"><span class="w-8 h-1 bg-primary mr-3"></span>Quick Links</h3>
+            <ul class="space-y-3">
+              <li><a href="index.html#home" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Home</a></li>
+              <li><a href="index.html#about" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>About Us</a></li>
+              <li><a href="index.html#programs" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Programs</a></li>
+              <li><a href="gallery.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Gallery</a></li>
+              <li><a href="donate.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Donate</a></li>
+              <li><a href="contact.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center"><span class="w-8 h-1 bg-primary mr-3"></span>Programs</h3>
+            <ul class="space-y-3">
+              <li><a href="school-visits.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>School Visits</a></li>
+              <li><a href="educational-tours.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Educational Tours</a></li>
+              <li><a href="youth-camps.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Youth Camps</a></li>
+              <li><a href="sports-activities.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Sports Activities</a></li>
+              <li><a href="community-service.html" class="text-gray-300 hover:text-primary transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i>Community Service</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center"><span class="w-8 h-1 bg-primary mr-3"></span>Newsletter</h3>
+            <p class="text-gray-300 mb-4">Subscribe for stories and updates.</p>
+            <form class="space-y-3">
+              <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-full text-dark focus:outline-none focus:ring-2 focus:ring-primary">
+              <button class="w-full bg-primary hover:bg-red-700 px-6 py-3 rounded-full font-semibold transition duration-300 flex items-center justify-center">
+                <i class="fas fa-paper-plane mr-2"></i> Subscribe
+              </button>
+            </form>
           </div>
         </div>
-        <div>
-          <h3 class="text-xl font-bold mb-6">Quick Links</h3>
-          <ul class="space-y-3">
-            <li><a href="index.html#home" class="text-gray-300 hover:text-white transition">Home</a></li>
-            <li><a href="index.html#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
-            <li><a href="index.html#programs" class="text-gray-300 hover:text-white transition">Programs</a></li>
-            <li><a href="gallery.html" class="text-gray-300 hover:text-white transition">Gallery</a></li>
-            <li><a href="donate.html" class="text-gray-300 hover:text-white transition">Donate</a></li>
-            <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold mb-6">Our Programs</h3>
-          <ul class="space-y-3">
-            <li><a href="school-visits.html" class="text-gray-300 hover:text-white transition">School Visits</a></li>
-            <li><a href="educational-tours.html" class="text-gray-300 hover:text-white transition">Educational Tours</a></li>
-            <li><a href="youth-camps.html" class="text-gray-300 hover:text-white transition">Youth Camps</a></li>
-            <li><a href="sports-activities.html" class="text-gray-300 hover:text-white transition">Sports Activities</a></li>
-            <li><a href="community-service.html" class="text-gray-300 hover:text-white transition">Community Service</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold mb-6">Newsletter</h3>
-          <p class="text-gray-300 mb-4">Subscribe for stories and updates.</p>
-          <form class="flex">
-            <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark"/>
-            <button class="bg-primary hover:bg-red-700 px-4 rounded-r-lg transition"><i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
       </div>
-      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+    </div>
+    <div class="border-t border-gray-700 py-6">
+      <div class="container mx-auto px-4 text-center text-gray-400">
         <p>&copy; <span id="current-year"></span> Twinkle Little Stars, Inc. DBA Made To Thrive. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile nav toggle + year
     document.addEventListener('DOMContentLoaded', () => {
+      // Mobile nav
       const menuButton = document.querySelector('button.md\\:hidden');
       const navMenu = document.querySelector('nav');
       const menuIcon = menuButton ? menuButton.querySelector('i') : null;
-
       if (menuButton && navMenu) {
         menuButton.addEventListener('click', () => {
           navMenu.classList.toggle('hidden');
@@ -239,7 +439,6 @@
           navMenu.classList.toggle('flex-col');
           navMenu.classList.toggle('space-y-2');
           navMenu.classList.toggle('px-4');
-
           if (menuIcon) {
             menuIcon.classList.toggle('fa-bars');
             menuIcon.classList.toggle('fa-times');
@@ -247,60 +446,73 @@
         });
       }
 
+      // Year
       const yearSpan = document.getElementById('current-year');
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // Filters
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('#gallery-grid .masonry-item');
+      filterButtons.forEach(btn => btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-secondary', 'text-white', 'border-secondary');
+          b.classList.add('bg-transparent', 'text-white/80', 'border-white/20');
+        });
+        btn.classList.add('active', 'bg-secondary', 'text-white', 'border-secondary');
+        btn.classList.remove('bg-transparent', 'text-white/80', 'border-white/20');
+        const f = btn.dataset.filter;
+        items.forEach(it => {
+          if (f === 'all' || it.dataset.category.includes(f)) {
+            it.classList.remove('hidden');
+          } else {
+            it.classList.add('hidden');
+          }
+        });
+      }));
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeBtn = document.getElementById('closeLightbox');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const figures = Array.from(document.querySelectorAll('#gallery-grid figure'));
+      let idx = -1;
+
+      function openLightbox(i) {
+        idx = i;
+        const fig = figures[idx];
+        const img = fig.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = fig.querySelector('figcaption p')?.textContent || '';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
       }
-    });
+      function closeLightboxFn() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      function step(dir) {
+        const visibleFigures = figures.filter(f => !f.classList.contains('hidden'));
+        const currentVisibleIdx = visibleFigures.indexOf(figures[idx]);
+        const newVisibleIdx = (currentVisibleIdx + dir + visibleFigures.length) % visibleFigures.length;
+        idx = figures.indexOf(visibleFigures[newVisibleIdx]);
+        openLightbox(idx);
+      }
 
-    // Filters
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('#gallery-grid .masonry-item');
-    filterButtons.forEach(btn => btn.addEventListener('click', () => {
-      filterButtons.forEach(b=>b.classList.remove('bg-primary','text-white'));
-      btn.classList.add('bg-primary','text-white');
-      const f = btn.dataset.filter;
-      items.forEach(it => {
-        if (f === 'all' || it.dataset.category.includes(f)) {
-          it.classList.remove('hidden');
-        } else {
-          it.classList.add('hidden');
-        }
-      })
-    }))
-
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const closeBtn = document.getElementById('closeLightbox');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    const figures = Array.from(document.querySelectorAll('#gallery-grid figure'));
-    let idx = -1;
-
-    function openLightbox(i){
-      idx = i; const fig = figures[idx];
-      const img = fig.querySelector('img');
-      lightboxImg.src = img.src; lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = fig.querySelector('figcaption')?.textContent || '';
-      lightbox.classList.add('open');
-    }
-    function step(dir){ idx = (idx + dir + figures.length) % figures.length; openLightbox(idx); }
-
-    figures.forEach((fig,i)=>{
-      fig.addEventListener('click', ()=> openLightbox(i));
-    });
-    closeBtn.addEventListener('click', ()=> lightbox.classList.remove('open'));
-    lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
-    prevBtn.addEventListener('click', ()=> step(-1));
-    nextBtn.addEventListener('click', ()=> step(1));
-    document.addEventListener('keydown', (e)=>{
-      if(!lightbox.classList.contains('open')) return;
-      if(e.key==='Escape') lightbox.classList.remove('open');
-      if(e.key==='ArrowLeft') step(-1);
-      if(e.key==='ArrowRight') step(1);
+      figures.forEach((fig, i) => fig.addEventListener('click', () => openLightbox(i)));
+      closeBtn.addEventListener('click', closeLightboxFn);
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightboxFn(); });
+      prevBtn.addEventListener('click', () => step(-1));
+      nextBtn.addEventListener('click', () => step(1));
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightboxFn();
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+      });
     });
   </script>
 </body>

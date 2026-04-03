@@ -81,15 +81,14 @@
     .lightbox { display: none; }
     .lightbox.open { display: flex; }
 
-    .masonry {
-      column-count: 1;
-      column-gap: 1.25rem;
+    /* Gallery grid: consistent card sizes */
+    .gallery-card-img-wrapper {
+      height: 260px;
     }
-    @media (min-width: 640px) { .masonry { column-count: 2; } }
-    @media (min-width: 1024px) { .masonry { column-count: 3; } }
-    .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 1.25rem;
+    @media (min-width: 768px) {
+      .gallery-card-img-wrapper {
+        height: 280px;
+      }
     }
 
     .story-scroll::-webkit-scrollbar {
@@ -119,6 +118,7 @@
       <nav class="hidden md:flex space-x-8">
         <a href="index.html#home" class="nav-link text-black font-bold uppercase">Home</a>
         <a href="index.html#about" class="nav-link text-black font-bold uppercase">About Us</a>
+        <a href="about-rosemary.html" class="nav-link text-black font-bold uppercase">About Rosemary</a>
         <a href="index.html#programs" class="nav-link text-black font-bold uppercase">Programs</a>
         <a href="gallery.html" class="nav-link text-black font-bold uppercase current-page">Gallery</a>
         <a href="donate.html" class="nav-link text-black font-bold uppercase">Donate</a>
@@ -201,7 +201,7 @@
             </div>
             <div class="p-4 border-l-4 border-accent">
               <h4 class="font-semibold text-dark mb-1">New Horizons</h4>
-              <p class="text-sm text-gray-500">Exposure visits that open minds to higher education.</p>
+              <p class="text-sm text-gray-500">Graduating from higher learning institutions.</p>
             </div>
           </article>
           <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
@@ -214,20 +214,33 @@
             </div>
             <div class="p-4 border-l-4 border-primary">
               <h4 class="font-semibold text-dark mb-1">Team & Character</h4>
-              <p class="text-sm text-gray-500">Sports that build discipline, respect and joy.</p>
+              <p class="text-sm text-gray-500">Sports opportunities for the students and young adults.</p>
             </div>
           </article>
           <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
             <div class="relative h-44 overflow-hidden">
-              <img src="gallery3.png" alt="Community service" class="w-full h-full object-cover" loading="lazy" />
+              <img src="well.jpg" alt="Community service" class="w-full h-full object-cover" loading="lazy" />
               <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
               <div class="absolute bottom-3 left-3 bg-dark text-white px-3 py-1 rounded text-xs font-medium">
                 <i class="fas fa-hands-helping mr-1"></i> Community
               </div>
             </div>
             <div class="p-4 border-l-4 border-dark">
-              <h4 class="font-semibold text-dark mb-1">Serving Together</h4>
-              <p class="text-sm text-gray-500">Community projects that teach compassion in action.</p>
+              <h4 class="font-semibold text-dark mb-1">Serving the Community</h4>
+              <p class="text-sm text-gray-500">Doing community projects for the people.</p>
+            </div>
+          </article>
+          <article class="w-72 story-card bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="relative h-44 overflow-hidden">
+              <img src="gallery9.jpg" alt="Recreational activities" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 bg-dark text-white px-3 py-1 rounded text-xs font-medium">
+                <i class="fas fa-hands-helping mr-1"></i> Events
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-dark">
+              <h4 class="font-semibold text-dark mb-1">Recreational Activities</h4>
+              <p class="text-sm text-gray-500">Engaging in fun and educational recreational activities.</p>
             </div>
           </article>
         </div>
@@ -252,83 +265,321 @@
   <!-- Masonry Gallery -->
   <section class="py-14 bg-gray-50">
     <div class="container mx-auto px-4">
-      <div id="gallery-grid" class="masonry">
+      <div id="gallery-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
+        <!-- Core gallery images (1-6) -->
         <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
-          <div class="overflow-hidden">
-            <img src="gallery1.png" alt="Students engaged in learning" class="w-full" loading="lazy" />
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery1.png" alt="Gallery image 1" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <figcaption class="p-4 bg-white">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-secondary uppercase tracking-wide"><i class="fas fa-graduation-cap mr-1"></i> Education</span>
-              <i class="fas fa-expand text-gray-300 text-sm"></i>
-            </div>
-            <p class="text-sm text-gray-600 leading-relaxed">Learning circles that spark curiosity and confidence.</p>
-          </figcaption>
         </figure>
 
         <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
-          <div class="overflow-hidden">
-            <img src="gallery2.png" alt="Mentorship activity" class="w-full" loading="lazy" />
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery2.png" alt="Gallery image 2" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <figcaption class="p-4 bg-white">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-accent uppercase tracking-wide"><i class="fas fa-users mr-1"></i> Mentorship</span>
-              <i class="fas fa-expand text-gray-300 text-sm"></i>
-            </div>
-            <p class="text-sm text-gray-600 leading-relaxed">One-to-one guidance that nurtures values and vision.</p>
-          </figcaption>
         </figure>
 
         <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
-          <div class="overflow-hidden">
-            <img src="gallery3.png" alt="Community service" class="w-full" loading="lazy" />
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="creativeoutlet.jpg" alt="Gallery image 3" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <figcaption class="p-4 bg-white">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-dark uppercase tracking-wide"><i class="fas fa-hands-helping mr-1"></i> Community</span>
-              <i class="fas fa-expand text-gray-300 text-sm"></i>
-            </div>
-            <p class="text-sm text-gray-600 leading-relaxed">Hands-on service that meets practical needs with dignity.</p>
-          </figcaption>
         </figure>
 
         <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
-          <div class="overflow-hidden">
-            <img src="gallery4.png" alt="Sports program" class="w-full" loading="lazy" />
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery4.png" alt="Gallery image 4" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <figcaption class="p-4 bg-white">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-primary uppercase tracking-wide"><i class="fas fa-futbol mr-1"></i> Sports</span>
-              <i class="fas fa-expand text-gray-300 text-sm"></i>
-            </div>
-            <p class="text-sm text-gray-600 leading-relaxed">Sports as a classroom for teamwork and resilience.</p>
-          </figcaption>
         </figure>
 
         <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education events">
-          <div class="overflow-hidden">
-            <img src="gallery5.png" alt="Educational tour" class="w-full" loading="lazy" />
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery5.png" alt="Gallery image 5" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <figcaption class="p-4 bg-white">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-secondary uppercase tracking-wide"><i class="fas fa-university mr-1"></i> Education</span>
-              <i class="fas fa-expand text-gray-300 text-sm"></i>
-            </div>
-            <p class="text-sm text-gray-600 leading-relaxed">University tours that turn dreams into plans.</p>
-          </figcaption>
         </figure>
 
         <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community events">
-          <div class="overflow-hidden">
-            <img src="gathering.png" alt="Community meeting" class="w-full" loading="lazy" />
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gathering.png" alt="Gallery image 6" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <figcaption class="p-4 bg-white">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-accent uppercase tracking-wide"><i class="fas fa-calendar-alt mr-1"></i> Events</span>
-              <i class="fas fa-expand text-gray-300 text-sm"></i>
-            </div>
-            <p class="text-sm text-gray-600 leading-relaxed">Gathering families and mentors to celebrate progress.</p>
-          </figcaption>
+        </figure>
+
+        <!-- Gallery images mapped from 7 onwards (skipping 9) -->
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery7.jpg" alt="Gallery image 7" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery8.jpg" alt="Gallery image 8" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery10.jpg" alt="Gallery image 10" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery11.jpg" alt="Gallery image 11" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery12.jpg" alt="Gallery image 12" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery13.jpg" alt="Gallery image 13" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <!-- New cards to complete up to gallery18 -->
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery14.jpg" alt="Gallery image 14" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery15.jpg" alt="Gallery image 15" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery16.jpg" alt="Gallery image 16" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery17.jpg" alt="Gallery image 17" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery18.jpg" alt="Gallery image 18" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <!-- Extended gallery images (19-53) -->
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery19.jpg" alt="Gallery image 19" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery20.jpg" alt="Gallery image 20" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery21.jpg" alt="Gallery image 21" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery22.jpg" alt="Gallery image 22" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery23.jpg" alt="Gallery image 23" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery24.jpg" alt="Gallery image 24" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery25.jpg" alt="Gallery image 25" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery26.jpg" alt="Gallery image 26" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery27.jpg" alt="Gallery image 27" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery28.jpg" alt="Gallery image 28" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery29.jpg" alt="Gallery image 29" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery30.jpg" alt="Gallery image 30" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery31.jpg" alt="Gallery image 31" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery32.jpg" alt="Gallery image 32" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery33.jpg" alt="Gallery image 33" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery34.jpg" alt="Gallery image 34" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery35.jpg" alt="Gallery image 35" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery36.jpg" alt="Gallery image 36" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery37.jpg" alt="Gallery image 37" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery38.jpg" alt="Gallery image 38" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery39.jpg" alt="Gallery image 39" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery40.jpg" alt="Gallery image 40" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery41.jpg" alt="Gallery image 41" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery42.jpg" alt="Gallery image 42" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery43.jpg" alt="Gallery image 43" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery44.jpg" alt="Gallery image 44" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery45.jpg" alt="Gallery image 45" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery46.jpg" alt="Gallery image 46" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery47.jpg" alt="Gallery image 47" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery48.jpg" alt="Gallery image 48" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="education">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery49.jpg" alt="Gallery image 49" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="mentorship">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery50.jpg" alt="Gallery image 50" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="sports">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery51.jpg" alt="Gallery image 51" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="community">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery52.jpg" alt="Gallery image 52" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </figure>
+
+        <figure class="masonry-item gallery-card rounded-lg overflow-hidden bg-white cursor-pointer" data-category="events">
+          <div class="overflow-hidden gallery-card-img-wrapper">
+            <img src="gallery53.jpg" alt="Gallery image 53" class="w-full h-full object-cover" loading="lazy" />
+          </div>
         </figure>
       </div>
 

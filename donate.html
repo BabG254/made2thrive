@@ -102,6 +102,7 @@
             <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="nav-link text-black font-bold uppercase">Home</a>
                 <a href="index.html#about" class="nav-link text-black font-bold uppercase">About Us</a>
+                <a href="about-rosemary.html" class="nav-link text-black font-bold uppercase">About Rosemary</a>
                 <a href="index.html#programs" class="nav-link text-black font-bold uppercase">Programs</a>
                 <a href="gallery.html" class="nav-link text-black font-bold uppercase">Gallery</a>
                 <a href="donate.html" class="nav-link text-black font-bold uppercase current-page">Donate</a>
@@ -213,7 +214,7 @@
 
                         <!-- Right: Form -->
                         <div class="md:w-3/5 p-8 md:p-10">
-                            <form>
+                            <form id="donation-form">
                                 <!-- Donation Type -->
                                 <div class="mb-6">
                                     <label class="block text-dark font-semibold mb-3">Donation Type</label>
@@ -239,14 +240,14 @@
                                 <div class="mb-6">
                                     <label class="block text-dark font-semibold mb-3">Select Amount</label>
                                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition">$25</button>
-                                        <button type="button" class="amount-btn active px-4 py-3 border-2 rounded-xl font-semibold">$50</button>
-                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition">$100</button>
-                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition">$250</button>
+                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition" data-amount="25">$25</button>
+                                        <button type="button" class="amount-btn active px-4 py-3 border-2 rounded-xl font-semibold" data-amount="50">$50</button>
+                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition" data-amount="100">$100</button>
+                                        <button type="button" class="amount-btn px-4 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:border-secondary transition" data-amount="250">$250</button>
                                     </div>
                                     <div class="relative">
-                                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold">$</span>
-                                        <input type="number" placeholder="Other amount" class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" min="1">
+                                        <span id="currency-symbol" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold">$</span>
+                                        <input id="custom-amount" type="number" placeholder="Other amount" class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" min="1">
                                     </div>
                                 </div>
 
@@ -254,14 +255,48 @@
                                 <div class="mb-6">
                                     <label class="block text-dark font-semibold mb-3">Payment Method</label>
                                     <div class="grid grid-cols-2 gap-3">
-                                        <button type="button" class="payment-btn p-4 border-2 border-gray-200 rounded-xl hover:border-dark transition flex items-center justify-center space-x-2">
+                                        <button type="button" class="payment-btn active p-4 border-2 border-gray-200 rounded-xl hover:border-dark transition flex items-center justify-center space-x-2" data-method="card">
                                             <i class="fas fa-credit-card text-dark"></i>
                                             <span class="font-medium">Card</span>
                                         </button>
-                                        <button type="button" class="payment-btn p-4 border-2 border-gray-200 rounded-xl hover:border-dark transition flex items-center justify-center space-x-2">
+                                        <button type="button" class="payment-btn p-4 border-2 border-gray-200 rounded-xl hover:border-dark transition flex items-center justify-center space-x-2" data-method="mpesa">
                                             <i class="fas fa-mobile-alt text-dark"></i>
                                             <span class="font-medium">M-Pesa</span>
                                         </button>
+                                    </div>
+                                </div>
+
+                                <!-- Card Details -->
+                                <div id="card-section" class="mb-6">
+                                    <label class="block text-dark font-semibold mb-3">Card Details</label>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-dark text-sm font-medium mb-1">Card Number</label>
+                                            <input id="card-number" type="text" inputmode="numeric" autocomplete="cc-number" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-dark text-sm font-medium mb-1">Expiry (MM/YY)</label>
+                                                <input id="card-expiry" type="text" inputmode="numeric" autocomplete="cc-exp" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="08/28">
+                                            </div>
+                                            <div>
+                                                <label class="block text-dark text-sm font-medium mb-1">CVV</label>
+                                                <input id="card-cvc" type="password" inputmode="numeric" autocomplete="cc-csc" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="123">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-dark text-sm font-medium mb-1">Name on Card</label>
+                                            <input id="card-name" type="text" autocomplete="cc-name" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="As shown on card">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- M-Pesa STK Details -->
+                                <div id="mpesa-section" class="mb-6 hidden">
+                                    <label class="block text-dark font-semibold mb-3">M-Pesa Number (STK Push)</label>
+                                    <div class="space-y-2">
+                                        <input id="mpesa-phone" type="tel" inputmode="tel" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="07XXXXXXXX">
+                                        <p class="text-xs text-gray-500">Enter the Safaricom number that will receive the STK prompt.</p>
                                     </div>
                                 </div>
 
@@ -269,11 +304,11 @@
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                     <div>
                                         <label class="block text-dark font-semibold mb-2">Full Name</label>
-                                        <input type="text" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="Your name" required>
+                                        <input id="full-name" type="text" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="Your name" required>
                                     </div>
                                     <div>
                                         <label class="block text-dark font-semibold mb-2">Email</label>
-                                        <input type="email" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="your@email.com" required>
+                                        <input id="email" type="email" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-secondary focus:outline-none transition" placeholder="your@email.com" required>
                                     </div>
                                 </div>
 
@@ -404,7 +439,13 @@
         </div>
     </footer>
 
+    <!-- Paystack inline script -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
     <script>
+        // TODO: Replace this with your real Paystack public key (test or live)
+        const PAYSTACK_PUBLIC_KEY = 'pk_test_your_public_key_here';
+
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu
             const menuButton = document.querySelector('button.md\\:hidden');
@@ -435,21 +476,198 @@
 
             // Amount selection
             const amountBtns = document.querySelectorAll('.amount-btn');
+            const customAmountInput = document.getElementById('custom-amount');
             amountBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     amountBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
+
+                    const value = this.dataset.amount;
+                    if (customAmountInput && value) {
+                        customAmountInput.value = value;
+                    }
                 });
             });
 
-            // Payment method selection
+            // Payment method selection + step sections
             const paymentBtns = document.querySelectorAll('.payment-btn');
+            const cardSection = document.getElementById('card-section');
+            const mpesaSection = document.getElementById('mpesa-section');
+            const currencySymbol = document.getElementById('currency-symbol');
+
+            function updatePaymentSections(method) {
+                if (!cardSection || !mpesaSection) return;
+                const prefix = method === 'mpesa' ? 'KSh ' : '$';
+
+                if (method === 'mpesa') {
+                    cardSection.classList.add('hidden');
+                    mpesaSection.classList.remove('hidden');
+                    if (currencySymbol) currencySymbol.textContent = 'KSh';
+                } else {
+                    cardSection.classList.remove('hidden');
+                    mpesaSection.classList.add('hidden');
+                    if (currencySymbol) currencySymbol.textContent = '$';
+                }
+
+                // Update quick amount button labels to match currency
+                amountBtns.forEach(btn => {
+                    const value = btn.dataset.amount;
+                    if (!value) return;
+                    btn.textContent = prefix + value;
+                });
+            }
+
             paymentBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     paymentBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
+
+                    const method = this.dataset.method || 'card';
+                    updatePaymentSections(method);
                 });
             });
+
+            // Initialize sections based on default active button
+            const initialPaymentBtn = document.querySelector('.payment-btn.active');
+            updatePaymentSections(initialPaymentBtn ? initialPaymentBtn.dataset.method : 'card');
+
+            function startPaystackPayment(paymentData) {
+                if (!PAYSTACK_PUBLIC_KEY || PAYSTACK_PUBLIC_KEY.indexOf('pk_') !== 0) {
+                    alert('Paystack public key is not configured. Please set PAYSTACK_PUBLIC_KEY in donate.html.');
+                    console.error('Missing or invalid PAYSTACK_PUBLIC_KEY');
+                    return;
+                }
+
+                const amountKobo = Math.round(paymentData.amount * 100); // smallest unit
+
+                const handler = PaystackPop.setup({
+                    key: PAYSTACK_PUBLIC_KEY,
+                    email: paymentData.email,
+                    amount: amountKobo,
+                    currency: paymentData.currency || 'USD',
+                    channels: paymentData.method === 'mpesa' ? ['mobile_money'] : ['card'],
+                    metadata: {
+                        custom_fields: [
+                            {
+                                display_name: 'Donor Name',
+                                variable_name: 'donor_name',
+                                value: paymentData.name
+                            },
+                            {
+                                display_name: 'Donation Type',
+                                variable_name: 'donation_type',
+                                value: paymentData.donationType || 'one-time'
+                            },
+                            {
+                                display_name: 'Payment Method',
+                                variable_name: 'payment_method',
+                                value: paymentData.method
+                            }
+                        ]
+                    },
+                    callback: function(response) {
+                        alert('Thank you! Your donation was successful. Reference: ' + response.reference);
+                    },
+                    onClose: function() {
+                        console.log('Paystack payment window closed');
+                    }
+                });
+
+                handler.openIframe();
+            }
+
+            // Donation form submission
+            const donationForm = document.getElementById('donation-form');
+            if (donationForm) {
+                donationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const activeAmountBtn = document.querySelector('.amount-btn.active');
+                    let amount = 0;
+                    if (activeAmountBtn && activeAmountBtn.dataset.amount) {
+                        amount = parseFloat(activeAmountBtn.dataset.amount);
+                    }
+
+                    if (customAmountInput) {
+                        const customValue = parseFloat(customAmountInput.value);
+                        if (!isNaN(customValue) && customValue > 0) {
+                            amount = customValue;
+                        }
+                    }
+
+                    if (!amount || amount <= 0) {
+                        alert('Please select or enter a valid amount.');
+                        return;
+                    }
+
+                    const nameInput = document.getElementById('full-name');
+                    const emailInput = document.getElementById('email');
+                    const name = nameInput ? nameInput.value.trim() : '';
+                    const email = emailInput ? emailInput.value.trim() : '';
+
+                    if (!name || !email) {
+                        alert('Please fill in your name and email.');
+                        return;
+                    }
+
+                    const activePaymentBtn = document.querySelector('.payment-btn.active');
+                    const method = activePaymentBtn && activePaymentBtn.dataset.method ? activePaymentBtn.dataset.method : 'card';
+
+                    // Currency per method: Card in USD, M-Pesa in KES
+                    const currency = method === 'mpesa' ? 'KES' : 'USD';
+
+                    // Donation type (one-time vs monthly)
+                    const donationTypeInput = document.querySelector('input[name="donation-type"]:checked');
+                    const donationType = donationTypeInput ? donationTypeInput.value : 'one-time';
+
+                    if (method === 'mpesa') {
+                        const phoneInput = document.getElementById('mpesa-phone');
+                        const phone = phoneInput ? phoneInput.value.trim() : '';
+                        if (!phone) {
+                            alert('Please enter your M-Pesa phone number.');
+                            return;
+                        }
+
+                        startPaystackPayment({
+                            method: 'mpesa',
+                            amount: amount,
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            currency: currency,
+                            donationType: donationType
+                        });
+                    } else {
+                        const cardNumberInput = document.getElementById('card-number');
+                        const cardExpiryInput = document.getElementById('card-expiry');
+                        const cardCvcInput = document.getElementById('card-cvc');
+                        const cardNameInput = document.getElementById('card-name');
+
+                        const cardNumber = cardNumberInput ? cardNumberInput.value.trim() : '';
+                        const cardExpiry = cardExpiryInput ? cardExpiryInput.value.trim() : '';
+                        const cardCvc = cardCvcInput ? cardCvcInput.value.trim() : '';
+                        const cardName = cardNameInput ? cardNameInput.value.trim() : '';
+
+                        if (!cardNumber || !cardExpiry || !cardCvc) {
+                            alert('Please fill in your card details.');
+                            return;
+                        }
+
+                        startPaystackPayment({
+                            method: 'card',
+                            amount: amount,
+                            name: name,
+                            email: email,
+                            cardNumber: cardNumber,
+                            cardExpiry: cardExpiry,
+                            cardCvc: cardCvc,
+                            cardName: cardName,
+                            currency: currency,
+                            donationType: donationType
+                        });
+                    }
+                });
+            }
 
             // Year
             const yearSpan = document.getElementById('current-year');
